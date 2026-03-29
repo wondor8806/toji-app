@@ -747,6 +747,13 @@
 
   // Running timer
   let running = false;
+  function enter() {
+    document.getElementById('splash').classList.add('hidden');
+    document.getElementById('main').classList.remove('hidden');
+  }
+
+  // Running timer
+  let running = false;
   let runSeconds = 0;
   let runInterval = null;
   let distInterval = null;
@@ -767,10 +774,8 @@
         const m = String(Math.floor(runSeconds / 60)).padStart(2, '0');
         const s = String(runSeconds % 60).padStart(2, '0');
         document.getElementById('runTime').textContent = m + ':' + s;
-        // fake distance
         fakeDist += 0.003;
         document.getElementById('runDist').textContent = fakeDist.toFixed(2);
-        // fake pace
         const paceMin = Math.floor(5 + Math.random() * 0.5);
         const paceSec = String(Math.floor(Math.random() * 60)).padStart(2, '0');
         document.getElementById('runPace').textContent = paceMin + "'" + paceSec + '"';
@@ -783,7 +788,7 @@
     }
   }
 
-
+  document.getElementById('tabBar').addEventListener('click', (e) => {
     const tab = e.target.closest('.tab-item');
     if (!tab) return;
 
