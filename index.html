@@ -175,6 +175,43 @@
   .home-summary-value { font-size: 20px; font-weight: 700; color: #fff; }
   .home-summary-label { font-size: 8px; color: #555; letter-spacing: 2px; text-transform: uppercase; margin-top: 6px; }
 
+  /* ══ ACTIVITY SELECT ══ */
+  .act-select-header {
+    padding: 32px 20px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .act-select-label { font-size: 8px; color: #444; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 6px; }
+  .act-select-sub { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: 1px; }
+
+  .act-select-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 20px;
+  }
+
+  .act-select-item {
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 24px 16px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 10px;
+    cursor: pointer; transition: border-color 0.2s;
+    position: relative;
+  }
+
+  .act-select-item:hover { border-color: rgba(255,255,255,0.4); }
+  .act-select-item.disabled { opacity: 0.35; cursor: default; }
+  .act-select-item.disabled:hover { border-color: rgba(255,255,255,0.1); }
+
+  .act-select-icon { font-size: 28px; }
+  .act-select-name { font-size: 9px; font-weight: 700; color: #fff; letter-spacing: 3px; text-transform: uppercase; }
+  .act-select-soon { position: absolute; top: 8px; right: 8px; font-size: 7px; color: #555; letter-spacing: 2px; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.1); padding: 2px 6px; }
+
+  .act-running-back { padding: 16px 20px 0; }
+  .act-back-btn { background: transparent; border: none; color: #555; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px; cursor: pointer; transition: color 0.2s; }
+  .act-back-btn:hover { color: #fff; }
+
   /* ══ ACTIVITY ══ */
   .act-section { padding: 20px 20px 0; }
   .act-section-label { font-size: 8px; color: #444; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; }
@@ -394,7 +431,224 @@
   .result-btn.primary { background: #fff; color: #000; border-color: #fff; }
   .result-btn:hover { opacity: 0.8; }
 
-  /* ══ ARCHIVE ══ */
+  /* ══ MUSIC PANEL ══ */
+  .run-music-panel {
+    display: none;
+    background: rgba(0,0,0,0.97);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    flex-direction: column;
+    max-height: 220px;
+  }
+
+  .run-music-panel.open { display: flex; }
+
+  .run-music-tabs {
+    display: flex;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    flex-shrink: 0;
+  }
+
+  .run-music-tab {
+    flex: 1; padding: 10px;
+    background: none; border: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 8px; color: #444;
+    letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; transition: color 0.2s;
+    border-bottom: 1px solid transparent;
+    margin-bottom: -1px;
+  }
+
+  .run-music-tab.active { color: #fff; border-bottom-color: #fff; }
+
+  .run-music-season-row {
+    display: flex; gap: 6px;
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    overflow-x: auto; scrollbar-width: none;
+    flex-shrink: 0;
+  }
+
+  .run-music-season-row::-webkit-scrollbar { display: none; }
+
+  .run-music-season {
+    flex-shrink: 0;
+    padding: 6px 14px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #555;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px; letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer; transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .run-music-season.active { border-color: #fff; color: #fff; }
+
+  .run-music-tracks { display: block; }
+
+  .run-music-list { display: none; flex-direction: column; overflow: hidden; }
+  .run-music-list.active { display: flex; }
+
+  .run-music-track {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    cursor: pointer; transition: background 0.2s;
+  }
+
+  .run-music-track:hover { background: rgba(255,255,255,0.04); }
+  .run-music-track.playing { background: rgba(255,255,255,0.06); }
+
+  .run-music-num { font-size: 9px; color: #333; width: 16px; flex-shrink: 0; }
+  .run-music-info { flex: 1; }
+  .run-music-title { font-size: 10px; font-weight: 700; color: #fff; letter-spacing: 1px; }
+  .run-music-artist { font-size: 8px; color: #555; letter-spacing: 1px; margin-top: 2px; }
+  .run-music-dur { font-size: 9px; color: #444; flex-shrink: 0; }
+
+  .run-music-now {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 16px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    background: #000;
+    flex-shrink: 0;
+  }
+
+  .run-music-now-info { flex: 1; }
+  .run-music-now-title { font-size: 10px; font-weight: 700; color: #fff; letter-spacing: 1px; }
+  .run-music-now-artist { font-size: 8px; color: #555; letter-spacing: 1px; margin-top: 2px; }
+
+  .run-music-play {
+    width: 32px; height: 32px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: transparent; color: #fff;
+    font-size: 10px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: border-color 0.2s;
+  }
+
+  .run-music-play:hover { border-color: #fff; }
+
+  .run-bottom-btns {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 24px 8px;
+  }
+
+  .run-music-btn { background: transparent; border: none; color: #555; font-size: 20px; cursor: pointer; transition: color 0.2s; padding: 4px; }
+  .run-music-btn:hover { color: #fff; }
+  .run-lock-btn { background: transparent; border: none; color: #555; font-size: 18px; cursor: pointer; padding: 4px; }
+
+  /* ══ ARCHIVE SOUND ══ */
+  .archive-sound {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin-top: 8px;
+  }
+
+  .archive-sound-header {
+    padding: 24px 20px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .archive-sound-title { font-size: 24px; font-weight: 700; color: #fff; letter-spacing: 2px; }
+  .archive-sound-sub { font-size: 8px; color: #444; letter-spacing: 3px; text-transform: uppercase; margin-top: 4px; }
+
+  .archive-sound-section { padding: 20px 20px 0; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 4px; }
+
+  .archive-sound-section-label { font-size: 8px; color: #444; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; }
+
+  .archive-sound-curated-desc { font-size: 9px; color: #555; letter-spacing: 1px; line-height: 1.7; margin-bottom: 16px; font-style: italic; }
+
+  .archive-sound-track {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .archive-sound-track:hover { opacity: 0.7; }
+  .archive-sound-num { font-size: 9px; color: #333; width: 20px; flex-shrink: 0; }
+  .archive-sound-info { flex: 1; }
+  .archive-sound-track-title { font-size: 10px; font-weight: 700; color: #fff; letter-spacing: 1px; }
+  .archive-sound-track-artist { font-size: 8px; color: #555; letter-spacing: 1px; margin-top: 2px; }
+  .archive-sound-duration { font-size: 9px; color: #444; flex-shrink: 0; }
+
+  .archive-sound-more {
+    width: 100%; padding: 14px;
+    background: transparent;
+    border: none; border-top: 1px solid rgba(255,255,255,0.06);
+    color: #555;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; transition: color 0.2s;
+    margin-top: 4px;
+  }
+
+  .archive-sound-more:hover { color: #fff; }
+
+  /* ══ ARCHIVE NEW ══ */
+  .arc-list { padding: 0 20px; }
+
+  .arc-list-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    cursor: pointer; transition: opacity 0.2s;
+  }
+
+  .arc-list-item:hover { opacity: 0.7; }
+  .arc-list-season { font-size: 8px; color: #444; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 4px; }
+  .arc-list-title { font-size: 16px; font-weight: 700; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
+  .arc-list-arrow { font-size: 14px; color: #444; }
+
+  .arc-curated-section { padding: 24px 20px; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 8px; }
+  .arc-curated-label { font-size: 8px; color: #444; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+  .arc-curated-desc { font-size: 9px; color: #555; letter-spacing: 1px; line-height: 1.7; margin-bottom: 16px; font-style: italic; }
+
+  .arc-sound-track { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: opacity 0.2s; }
+  .arc-sound-track:hover { opacity: 0.7; }
+  .arc-sound-num { font-size: 9px; color: #333; width: 20px; flex-shrink: 0; }
+  .arc-sound-info { flex: 1; }
+  .arc-sound-title { font-size: 10px; font-weight: 700; color: #fff; letter-spacing: 1px; }
+  .arc-sound-artist { font-size: 8px; color: #555; letter-spacing: 1px; margin-top: 2px; }
+  .arc-sound-dur { font-size: 9px; color: #444; flex-shrink: 0; }
+
+  .arc-silence-sub-label { font-size: 8px; color: #555; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
+  .arc-silence-curated-desc { font-size: 9px; color: #444; letter-spacing: 1px; line-height: 1.6; margin-bottom: 12px; font-style: italic; }
+
+  .arc-more-btn { width: 100%; padding: 12px; background: transparent; border: none; border-top: 1px solid rgba(255,255,255,0.06); color: #555; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: color 0.2s; margin-top: 4px; }
+  .arc-more-btn:hover { color: #fff; }
+
+  /* 시즌 상세 */
+  .arc-detail-header {
+    display: flex; align-items: center; gap: 16px;
+    padding: 52px 20px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .arc-back-btn { background: transparent; border: none; color: #fff; font-size: 18px; cursor: pointer; flex-shrink: 0; }
+  .arc-detail-season { font-size: 8px; color: #444; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 4px; }
+  .arc-detail-title { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
+
+  .arc-detail-quote { padding: 20px 20px 0; font-size: 11px; color: #555; letter-spacing: 1px; line-height: 1.6; font-style: italic; }
+
+  .arc-detail-section { padding: 20px 20px 0; }
+  .arc-detail-section-label { font-size: 8px; color: #444; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 14px; }
+
+  .arc-film-card { cursor: pointer; margin-bottom: 10px; }
+  .arc-film-thumb { width: 100%; height: 140px; background: #0a0a0a; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; transition: border-color 0.2s; }
+  .arc-film-card:hover .arc-film-thumb { border-color: rgba(255,255,255,0.3); }
+  .arc-film-play { font-size: 24px; color: rgba(255,255,255,0.3); }
+  .arc-film-label { font-size: 8px; color: #444; letter-spacing: 3px; text-transform: uppercase; }
+
+  .arc-lookbook-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-bottom: 4px; }
+  .arc-look-thumb { height: 90px; background: #0a0a0a; border: 1px solid rgba(255,255,255,0.06); }
+
+  .arc-silence-sub-label { font-size: 8px; color: #555; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
+  .arc-silence-curated-desc { font-size: 9px; color: #444; letter-spacing: 1px; line-height: 1.6; margin-bottom: 12px; font-style: italic; }
+
+  /* ══ ARCHIVE (OLD CSS - keep for compat) ══ */
   .archive-hero {
     padding: 32px 20px 24px;
     border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -802,6 +1056,231 @@
   .mypage-menu-label { font-size: 9px; color: #777; letter-spacing: 2px; text-transform: uppercase; }
   .mypage-menu-arrow { font-size: 12px; color: #333; }
 
+  /* ══ LIVE RUN SCREEN ══ */
+  .liverun-screen-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 52px 20px 12px;
+    flex-shrink: 0;
+  }
+
+  .liverun-screen-title { font-size: 13px; font-weight: 700; color: #fff; letter-spacing: 1px; text-transform: uppercase; }
+  .liverun-screen-close { background: transparent; border: none; color: #555; font-size: 16px; cursor: pointer; }
+
+  .liverun-screen-tabs {
+    display: flex; border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 0 20px; flex-shrink: 0;
+  }
+
+  .liverun-screen-tab {
+    flex: 1; padding: 12px 0;
+    background: none; border: none;
+    color: #444; font-size: 16px; cursor: pointer;
+    border-bottom: 1px solid transparent;
+    margin-bottom: -1px; transition: color 0.2s;
+  }
+
+  .liverun-screen-tab.active { color: #fff; border-bottom-color: #fff; }
+
+  .liverun-view { display: none; flex: 1; overflow-y: auto; }
+  .liverun-view.active { display: flex; flex-direction: column; }
+
+  /* 시간 뷰 */
+  .liverun-timer-wrap { padding: 20px 20px 12px; flex-shrink: 0; }
+  .liverun-timer-label { font-size: 14px; font-weight: 700; color: #fff; letter-spacing: 2px; }
+
+  .liverun-rank-list { padding: 0 20px; display: flex; flex-direction: column; gap: 12px; }
+  .liverun-rank-item { display: flex; align-items: center; gap: 10px; }
+  .liverun-rank-num { font-size: 9px; color: #444; letter-spacing: 1px; width: 16px; flex-shrink: 0; }
+  .liverun-rank-avatar { width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: #fff; flex-shrink: 0; }
+  .liverun-rank-avatar.me { border-color: #fff; background: rgba(255,255,255,0.1); }
+  .liverun-rank-bar-wrap { flex: 1; height: 4px; background: rgba(255,255,255,0.08); }
+  .liverun-rank-bar { height: 4px; background: #fff; transition: width 0.5s ease; }
+  .liverun-rank-bar.other { background: rgba(255,255,255,0.3); }
+  .liverun-rank-dist { font-size: 10px; color: #888; letter-spacing: 1px; width: 44px; text-align: right; flex-shrink: 0; }
+
+  /* 맵 뷰 */
+  .liverun-mini-map { width: 100%; flex: 1; background: #0a0a0a; position: relative; min-height: 380px; }
+
+  /* 랭킹 뷰 */
+  .liverun-full-rank { padding: 16px 20px; display: flex; flex-direction: column; gap: 8px; }
+  .liverun-full-rank-item { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border: 1px solid rgba(255,255,255,0.08); }
+  .liverun-full-rank-item.rank1 { border-color: rgba(255,255,255,0.25); }
+  .liverun-full-rank-pos { font-size: 9px; color: #444; letter-spacing: 1px; width: 20px; flex-shrink: 0; }
+  .liverun-full-rank-avatar { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #fff; flex-shrink: 0; }
+  .liverun-full-rank-avatar.me { border-color: #fff; }
+  .liverun-full-rank-info { flex: 1; }
+  .liverun-full-rank-name { font-size: 10px; font-weight: 700; color: #fff; letter-spacing: 1px; }
+  .liverun-full-rank-dist { font-size: 8px; color: #555; letter-spacing: 1px; margin-top: 2px; }
+  .liverun-full-rank-pace { font-size: 10px; color: #666; letter-spacing: 1px; flex-shrink: 0; }
+
+  /* 하단 스탯 */
+  .liverun-screen-stats {
+    display: flex; align-items: center;
+    padding: 16px 24px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    flex-shrink: 0;
+  }
+
+  .liverun-screen-stat { flex: 1; text-align: center; }
+  .liverun-screen-stat-label { font-size: 8px; color: #444; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+  .liverun-screen-stat-value { font-size: 22px; font-weight: 700; color: #fff; letter-spacing: -1px; }
+  .liverun-screen-divider { width: 1px; height: 36px; background: rgba(255,255,255,0.08); }
+
+  /* 하단 컨트롤 */
+  .liverun-screen-controls {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 32px 36px;
+    flex-shrink: 0;
+  }
+
+  .liverun-ctrl-btn { background: transparent; border: none; color: #555; font-size: 20px; cursor: pointer; padding: 8px; transition: color 0.2s; }
+  .liverun-ctrl-btn:hover { color: #fff; }
+
+  .liverun-stop-btn {
+    width: 64px; height: 64px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: transparent; color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; transition: border-color 0.2s;
+  }
+
+  .liverun-stop-btn:hover { border-color: #fff; }
+
+  /* ══ SESSION OVERLAYS ══ */
+  .session-overlay {
+    position: absolute; inset: 0;
+    background: #000;
+    z-index: 25;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease;
+    display: flex; flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .session-overlay.active { opacity: 1; pointer-events: all; }
+
+  .session-overlay-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 52px 20px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    flex-shrink: 0;
+  }
+
+  .session-overlay-title { font-size: 11px; font-weight: 700; color: #fff; letter-spacing: 3px; text-transform: uppercase; }
+  .session-overlay-close { background: transparent; border: none; color: #555; font-size: 16px; cursor: pointer; }
+
+  .session-overlay-body { padding: 20px; overflow-y: auto; }
+
+  .session-field { margin-bottom: 24px; }
+  .session-field-label { font-size: 8px; color: #555; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
+
+  .session-input {
+    width: 100%; padding: 12px;
+    background: #0d0d0d;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .session-input:focus { border-color: rgba(255,255,255,0.4); }
+  .session-input::placeholder { color: #333; }
+
+  .session-pin-row { display: flex; gap: 8px; }
+  .session-pin {
+    width: 44px; height: 44px;
+    background: #0d0d0d;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 16px; font-weight: 700;
+    text-align: center; outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .session-pin:focus { border-color: rgba(255,255,255,0.4); }
+
+  .session-mode-row { display: flex; gap: 8px; }
+  .session-mode-btn {
+    flex: 1; padding: 16px 8px;
+    background: #0d0d0d;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #555;
+    font-family: 'Space Mono', monospace;
+    cursor: pointer; transition: all 0.2s;
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+  }
+
+  .session-mode-btn.active { border-color: #fff; color: #fff; }
+  .session-mode-icon { font-size: 20px; }
+  .session-mode-name { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; }
+
+  .session-tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .session-tag {
+    padding: 6px 12px;
+    background: #0d0d0d;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #555;
+    font-family: 'Space Mono', monospace;
+    font-size: 8px; letter-spacing: 1px;
+    cursor: pointer; transition: all 0.2s;
+  }
+
+  .session-tag.active { border-color: #fff; color: #fff; }
+  .session-tag:hover { color: #888; }
+
+  .session-submit-btn {
+    width: 100%; padding: 16px;
+    background: #fff; color: #000;
+    border: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    cursor: pointer; margin-top: 8px;
+    transition: opacity 0.2s;
+  }
+
+  .session-submit-btn:hover { opacity: 0.85; }
+
+  /* 대기실 */
+  .waiting-header {
+    display: flex; align-items: center; gap: 16px;
+    padding: 52px 20px 16px;
+    flex-shrink: 0;
+  }
+
+  .waiting-back { background: transparent; border: none; color: #fff; font-size: 18px; cursor: pointer; }
+  .waiting-tags { font-size: 9px; color: #555; letter-spacing: 1px; }
+
+  .waiting-main {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 20px;
+  }
+
+  .waiting-sub { font-size: 10px; color: #555; letter-spacing: 2px; margin-bottom: 16px; }
+  .waiting-count { font-size: 96px; font-weight: 700; color: #fff; letter-spacing: -4px; line-height: 1; }
+  .waiting-ready { font-size: 16px; font-weight: 700; color: #fff; letter-spacing: 6px; margin-top: 8px; }
+
+  .waiting-chat-area {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex; flex-direction: column;
+    height: 220px; flex-shrink: 0;
+  }
+
+  .waiting-chat-messages { flex: 1; overflow-y: auto; padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; scrollbar-width: none; }
+  .waiting-chat-messages::-webkit-scrollbar { display: none; }
+
+  .waiting-chat-msg { font-size: 10px; color: #888; letter-spacing: 0.5px; line-height: 1.5; }
+  .waiting-chat-msg.system { color: #444; font-size: 9px; text-align: center; }
+
+  .waiting-chat-input-row { display: flex; gap: 8px; padding: 10px 16px; border-top: 1px solid rgba(255,255,255,0.06); }
+  .waiting-chat-input { flex: 1; background: #0d0d0d; border: 1px solid rgba(255,255,255,0.1); color: #fff; font-family: 'Space Mono', monospace; font-size: 10px; padding: 8px 12px; outline: none; }
+  .waiting-chat-send { width: 36px; height: 36px; background: #fff; border: none; color: #000; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
   /* Nav */
   .nav-buttons { display: flex; justify-content: center; gap: 12px; margin-top: 20px; }
   .nav-btn { width: 44px; height: 44px; background: transparent; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; color: rgba(255,255,255,0.4); font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
@@ -921,7 +1400,57 @@
               <div class="run-panel-label">Time</div>
             </div>
           </div>
-          <button class="run-stop-btn" onclick="stopRun()">Stop</button>
+          <div class="run-music-panel" id="runMusicPanel">
+            <div class="run-music-tabs">
+              <button class="run-music-tab active" onclick="switchMusicTab('official', this)">Official</button>
+              <button class="run-music-tab" onclick="switchMusicTab('curated', this)">Curated</button>
+            </div>
+            <div class="run-music-list active" id="musicTab-official">
+              <div class="run-music-season-row">
+                <button class="run-music-season active" onclick="switchSeason(this, 'run', '26SS')">26SS</button>
+                <button class="run-music-season" onclick="switchSeason(this, 'run', '25FW')">25FW</button>
+                <button class="run-music-season" onclick="switchSeason(this, 'run', '25SS')">25SS</button>
+                <button class="run-music-season" onclick="switchSeason(this, 'run', '24FW')">24FW</button>
+              </div>
+              <div class="run-music-tracks" id="run-tracks-26SS">
+                <div class="run-music-track" onclick="selectTrack(this, 'BSIDE — Interlude', 'SSG SOUND')"><div class="run-music-num">01</div><div class="run-music-info"><div class="run-music-title">BSIDE — Interlude</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">3:42</div></div>
+                <div class="run-music-track" onclick="selectTrack(this, 'Night Drift', 'SSG SOUND')"><div class="run-music-num">02</div><div class="run-music-info"><div class="run-music-title">Night Drift</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">4:15</div></div>
+                <div class="run-music-track" onclick="selectTrack(this, 'FIELD NOTES', 'SSG SOUND')"><div class="run-music-num">03</div><div class="run-music-info"><div class="run-music-title">FIELD NOTES</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">5:02</div></div>
+              </div>
+              <div class="run-music-tracks" id="run-tracks-25FW" style="display:none;">
+                <div class="run-music-track" onclick="selectTrack(this, 'Wayfinder I', 'SSG SOUND')"><div class="run-music-num">01</div><div class="run-music-info"><div class="run-music-title">Wayfinder I</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">4:10</div></div>
+                <div class="run-music-track" onclick="selectTrack(this, 'Trail Dusk', 'SSG SOUND')"><div class="run-music-num">02</div><div class="run-music-info"><div class="run-music-title">Trail Dusk</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">3:55</div></div>
+                <div class="run-music-track" onclick="selectTrack(this, 'Cold Start', 'SSG SOUND')"><div class="run-music-num">03</div><div class="run-music-info"><div class="run-music-title">Cold Start</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">4:30</div></div>
+              </div>
+              <div class="run-music-tracks" id="run-tracks-25SS" style="display:none;">
+                <div class="run-music-track" onclick="selectTrack(this, 'Checkpoint', 'SSG SOUND')"><div class="run-music-num">01</div><div class="run-music-info"><div class="run-music-title">Checkpoint</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">3:48</div></div>
+                <div class="run-music-track" onclick="selectTrack(this, 'Interval', 'SSG SOUND')"><div class="run-music-num">02</div><div class="run-music-info"><div class="run-music-title">Interval</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">4:22</div></div>
+                <div class="run-music-track" onclick="selectTrack(this, 'Pace Setter', 'SSG SOUND')"><div class="run-music-num">03</div><div class="run-music-info"><div class="run-music-title">Pace Setter</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">5:10</div></div>
+              </div>
+              <div class="run-music-tracks" id="run-tracks-24FW" style="display:none;">
+                <div class="run-music-track" onclick="selectTrack(this, 'Node I', 'SSG SOUND')"><div class="run-music-num">01</div><div class="run-music-info"><div class="run-music-title">Node I</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">4:05</div></div>
+                <div class="run-music-track" onclick="selectTrack(this, 'Pivot', 'SSG SOUND')"><div class="run-music-num">02</div><div class="run-music-info"><div class="run-music-title">Pivot</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">3:50</div></div>
+                <div class="run-music-track" onclick="selectTrack(this, 'Late Hour', 'SSG SOUND')"><div class="run-music-num">03</div><div class="run-music-info"><div class="run-music-title">Late Hour</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">4:44</div></div>
+              </div>
+            </div>
+            <div class="run-music-list" id="musicTab-curated">
+              <div class="run-music-track" onclick="selectTrack(this, 'Running Up That Hill', 'Kate Bush')"><div class="run-music-num">01</div><div class="run-music-info"><div class="run-music-title">Running Up That Hill</div><div class="run-music-artist">Kate Bush</div></div><div class="run-music-dur">5:00</div></div>
+              <div class="run-music-track" onclick="selectTrack(this, 'Electric Feel', 'MGMT')"><div class="run-music-num">02</div><div class="run-music-info"><div class="run-music-title">Electric Feel</div><div class="run-music-artist">MGMT</div></div><div class="run-music-dur">3:49</div></div>
+              <div class="run-music-track" onclick="selectTrack(this, 'Midnight City', 'M83')"><div class="run-music-num">03</div><div class="run-music-info"><div class="run-music-title">Midnight City</div><div class="run-music-artist">M83</div></div><div class="run-music-dur">4:03</div></div>
+            </div>
+            <div class="run-music-now">
+              <div class="run-music-now-info">
+                <div class="run-music-now-title" id="nowTitle">곡을 선택하세요</div>
+                <div class="run-music-now-artist" id="nowArtist">—</div>
+              </div>
+              <button class="run-music-play" id="runMusicPlayBtn" onclick="toggleMusicPlay()">▶</button>
+            </div>
+          </div>
+          <div class="run-bottom-btns">
+            <button class="run-music-btn" onclick="toggleMusicPanel('run')">♪</button>
+            <button class="run-stop-btn" onclick="stopRun()">Stop</button>
+            <button class="run-lock-btn">🔒</button>
+          </div>
         </div>
       </div>
 
@@ -998,204 +1527,194 @@
 
         <!-- ACTIVITY -->
         <div class="tab-page" id="page-ACTIVITY">
-          <div class="run-btn-wrap">
-            <button class="run-btn" onclick="startRun()">
-              <span class="run-btn-icon">▶</span>
-              <span>Start</span>
-            </button>
-          </div>
-          <div class="act-section">
-            <div class="act-section-label">Challenge</div>
-            <div class="challenge-card">
-              <div class="challenge-header"><div class="challenge-title">April 100KM</div><div class="challenge-pt">+500 PT</div></div>
-              <div class="challenge-bar-bg"><div class="challenge-bar-fill" style="width:42%"></div></div>
-              <div class="challenge-desc"><div class="challenge-km">42 / 100 KM</div><div class="challenge-km">58 KM left</div></div>
+
+          <!-- 활동 선택 -->
+          <div id="activitySelect">
+            <div class="act-select-header">
+              <div class="act-select-label">Activity</div>
+              <div class="act-select-sub">무엇을 시작할까요?</div>
+            </div>
+            <div class="act-select-grid">
+              <div class="act-select-item" onclick="selectActivity('running')">
+                <div class="act-select-icon">🏃</div>
+                <div class="act-select-name">Running</div>
+              </div>
+              <div class="act-select-item disabled">
+                <div class="act-select-icon">🚴</div>
+                <div class="act-select-name">Riding</div>
+                <div class="act-select-soon">Soon</div>
+              </div>
+              <div class="act-select-item disabled">
+                <div class="act-select-icon">🏊</div>
+                <div class="act-select-name">Swimming</div>
+                <div class="act-select-soon">Soon</div>
+              </div>
+              <div class="act-select-item disabled">
+                <div class="act-select-icon">🥾</div>
+                <div class="act-select-name">Tracking</div>
+                <div class="act-select-soon">Soon</div>
+              </div>
             </div>
           </div>
-          <div class="act-section" style="margin-top:20px;">
-            <div class="act-section-label">This Week</div>
-            <div class="week-bars">
-              <div class="week-bar-wrap"><div class="week-bar" style="height:30%"></div><div class="week-day">Mon</div></div>
-              <div class="week-bar-wrap"><div class="week-bar" style="height:60%"></div><div class="week-day">Tue</div></div>
-              <div class="week-bar-wrap"><div class="week-bar" style="height:0%"></div><div class="week-day">Wed</div></div>
-              <div class="week-bar-wrap"><div class="week-bar" style="height:45%"></div><div class="week-day">Thu</div></div>
-              <div class="week-bar-wrap"><div class="week-bar" style="height:80%"></div><div class="week-day">Fri</div></div>
-              <div class="week-bar-wrap"><div class="week-bar today" style="height:20%"></div><div class="week-day today">Sat</div></div>
-              <div class="week-bar-wrap"><div class="week-bar" style="height:0%"></div><div class="week-day">Sun</div></div>
+
+          <!-- 러닝 대시보드 -->
+          <div id="activityRunning" style="display:none;">
+            <div class="act-running-back">
+              <button class="act-back-btn" onclick="backToActivitySelect()">← Activity</button>
+            </div>
+            <div class="run-btn-wrap">
+              <button class="run-btn" onclick="startRun()">
+                <span class="run-btn-icon">▶</span>
+                <span>Start</span>
+              </button>
+            </div>
+            <div class="act-section">
+              <div class="act-section-label">Challenge</div>
+              <div class="challenge-card">
+                <div class="challenge-header"><div class="challenge-title">April 100KM</div><div class="challenge-pt">+500 PT</div></div>
+                <div class="challenge-bar-bg"><div class="challenge-bar-fill" style="width:42%"></div></div>
+                <div class="challenge-desc"><div class="challenge-km">42 / 100 KM</div><div class="challenge-km">58 KM left</div></div>
+              </div>
+            </div>
+            <div class="act-section" style="margin-top:20px;">
+              <div class="act-section-label">This Week</div>
+              <div class="week-bars">
+                <div class="week-bar-wrap"><div class="week-bar" style="height:30%"></div><div class="week-day">Mon</div></div>
+                <div class="week-bar-wrap"><div class="week-bar" style="height:60%"></div><div class="week-day">Tue</div></div>
+                <div class="week-bar-wrap"><div class="week-bar" style="height:0%"></div><div class="week-day">Wed</div></div>
+                <div class="week-bar-wrap"><div class="week-bar" style="height:45%"></div><div class="week-day">Thu</div></div>
+                <div class="week-bar-wrap"><div class="week-bar" style="height:80%"></div><div class="week-day">Fri</div></div>
+                <div class="week-bar-wrap"><div class="week-bar today" style="height:20%"></div><div class="week-day today">Sat</div></div>
+                <div class="week-bar-wrap"><div class="week-bar" style="height:0%"></div><div class="week-day">Sun</div></div>
+              </div>
+            </div>
+            <div class="act-section" style="margin-top:20px;">
+              <div class="act-section-label">Recent Runs</div>
+              <div class="history-item"><div><div class="history-date">2026.03.29 SAT</div><div class="history-km">5.20 KM</div></div><div class="history-right"><div class="history-pace">5'42" /km</div><div class="history-pt">+ 26 PT</div></div></div>
+              <div class="history-item"><div><div class="history-date">2026.03.27 Thu</div><div class="history-km">8.80 KM</div></div><div class="history-right"><div class="history-pace">5'18" /km</div><div class="history-pt">+ 44 PT</div></div></div>
+              <div class="history-item"><div><div class="history-date">2026.03.25 Tue</div><div class="history-km">12.00 KM</div></div><div class="history-right"><div class="history-pace">5'55" /km</div><div class="history-pt">+ 60 PT</div></div></div>
             </div>
           </div>
-          <div class="act-section" style="margin-top:20px;">
-            <div class="act-section-label">Recent Runs</div>
-            <div class="history-item"><div><div class="history-date">2026.03.29 SAT</div><div class="history-km">5.20 KM</div></div><div class="history-right"><div class="history-pace">5'42" /km</div><div class="history-pt">+ 26 PT</div></div></div>
-            <div class="history-item"><div><div class="history-date">2026.03.27 Thu</div><div class="history-km">8.80 KM</div></div><div class="history-right"><div class="history-pace">5'18" /km</div><div class="history-pt">+ 44 PT</div></div></div>
-            <div class="history-item"><div><div class="history-date">2026.03.25 Tue</div><div class="history-km">12.00 KM</div></div><div class="history-right"><div class="history-pace">5'55" /km</div><div class="history-pt">+ 60 PT</div></div></div>
-          </div>
+
         </div>
 
         <!-- ARCHIVE -->
         <div class="tab-page" id="page-GEAR">
 
-          <!-- Hero -->
-          <div class="archive-hero">
-            <div class="archive-hero-label">SAN SAN GEAR</div>
-            <div class="archive-hero-title">Archive</div>
-            <div class="archive-hero-desc">2022 — 2026</div>
+          <!-- 시즌 리스트 뷰 -->
+          <div id="archiveList">
+            <div class="archive-hero">
+              <div class="archive-hero-label">SAN SAN GEAR</div>
+              <div class="archive-hero-title">Archive</div>
+              <div class="archive-hero-desc">2022 — 2026</div>
+            </div>
+            <div class="arc-list">
+              <div class="arc-list-item" onclick="openSeason('26SS', 'INTRA', '내부로 향하는 움직임')">
+                <div class="arc-list-left">
+                  <div class="arc-list-season">26SS</div>
+                  <div class="arc-list-title">INTRA</div>
+                </div>
+                <div class="arc-list-arrow">→</div>
+              </div>
+              <div class="arc-list-item" onclick="openSeason('25FW', 'WAYFINDER', '길을 찾는 자들을 위하여')">
+                <div class="arc-list-left">
+                  <div class="arc-list-season">25FW</div>
+                  <div class="arc-list-title">WAYFINDER</div>
+                </div>
+                <div class="arc-list-arrow">→</div>
+              </div>
+              <div class="arc-list-item" onclick="openSeason('25SS', 'CHECK POINT', '멈춤도 여정의 일부다')">
+                <div class="arc-list-left">
+                  <div class="arc-list-season">25SS</div>
+                  <div class="arc-list-title">CHECK POINT</div>
+                </div>
+                <div class="arc-list-arrow">→</div>
+              </div>
+              <div class="arc-list-item" onclick="openSeason('24FW', 'PIVOT / NODE', '전환점에서 바라본 풍경')">
+                <div class="arc-list-left">
+                  <div class="arc-list-season">24FW</div>
+                  <div class="arc-list-title">PIVOT / NODE</div>
+                </div>
+                <div class="arc-list-arrow">→</div>
+              </div>
+              <div class="arc-list-item" onclick="openSeason('24SS', 'SCOPE', '시야를 확장하다')">
+                <div class="arc-list-left">
+                  <div class="arc-list-season">24SS</div>
+                  <div class="arc-list-title">SCOPE</div>
+                </div>
+                <div class="arc-list-arrow">→</div>
+              </div>
+              <div class="arc-list-item" onclick="openSeason('23FW', 'THIRD KIT', '세 번째 유니폼')">
+                <div class="arc-list-left">
+                  <div class="arc-list-season">23FW</div>
+                  <div class="arc-list-title">THIRD KIT</div>
+                </div>
+                <div class="arc-list-arrow">→</div>
+              </div>
+              <div class="arc-list-item" onclick="openSeason('23SS', 'MERCURIAL', '빠르고 날카롭게')">
+                <div class="arc-list-left">
+                  <div class="arc-list-season">23SS</div>
+                  <div class="arc-list-title">MERCURIAL</div>
+                </div>
+                <div class="arc-list-arrow">→</div>
+              </div>
+              <div class="arc-list-item" onclick="openSeason('22FW', 'SHELTER', '피할 곳을 찾아서')">
+                <div class="arc-list-left">
+                  <div class="arc-list-season">22FW</div>
+                  <div class="arc-list-title">SHELTER</div>
+                </div>
+                <div class="arc-list-arrow">→</div>
+              </div>
+            </div>
           </div>
 
-          <!-- Season list -->
-          <div class="archive-list">
-
-            <div class="archive-season-item active-season" id="season-26SS">
-              <div class="archive-season-header" onclick="toggleSeason('26SS')">
-                <div class="archive-season-left">
-                  <div class="archive-season-name">26SS</div>
-                  <div class="archive-season-title">INTRA</div>
-                </div>
-                <div class="archive-season-toggle">+</div>
+          <!-- 시즌 상세 뷰 -->
+          <div id="archiveDetail" style="display:none;">
+            <div class="arc-detail-header">
+              <button class="arc-back-btn" onclick="closeSeason()">←</button>
+              <div class="arc-detail-header-info">
+                <div class="arc-detail-season" id="detailSeason">26SS</div>
+                <div class="arc-detail-title" id="detailTitle">INTRA</div>
               </div>
-              <div class="archive-season-body" id="body-26SS">
-                <div class="archive-season-quote">"내부로 향하는 움직임"</div>
-                <div class="archive-film-card">
-                  <div class="archive-film-thumb">
-                    <div class="archive-film-thumb-text">▶</div>
-                    <div class="archive-film-label">Editorial Film</div>
-                  </div>
+            </div>
+            <div class="arc-detail-quote" id="detailQuote">"내부로 향하는 움직임"</div>
+
+            <!-- CREATIVE -->
+            <div class="arc-detail-section">
+              <div class="arc-detail-section-label">Creative</div>
+              <div class="arc-film-card">
+                <div class="arc-film-thumb">
+                  <div class="arc-film-play">▶</div>
+                  <div class="arc-film-label">Campaign Film</div>
                 </div>
-                <div class="archive-lookbook-grid">
-                  <div class="archive-look-thumb"></div>
-                  <div class="archive-look-thumb"></div>
-                  <div class="archive-look-thumb"></div>
-                  <div class="archive-look-thumb"></div>
-                </div>
+              </div>
+              <div class="arc-lookbook-grid">
+                <div class="arc-look-thumb"></div>
+                <div class="arc-look-thumb"></div>
+                <div class="arc-look-thumb"></div>
+                <div class="arc-look-thumb"></div>
               </div>
             </div>
 
-            <div class="archive-season-item" id="season-25FW">
-              <div class="archive-season-header" onclick="toggleSeason('25FW')">
-                <div class="archive-season-left">
-                  <div class="archive-season-name">25FW</div>
-                  <div class="archive-season-title">WAYFINDER</div>
-                </div>
-                <div class="archive-season-toggle">+</div>
+            <!-- SILENCE -->
+            <div class="arc-detail-section">
+              <div class="arc-detail-section-label">Silence</div>
+              <div class="arc-silence-sub-label">Official</div>
+              <div id="detailTracks">
+                <div class="arc-sound-track"><div class="arc-sound-num">01</div><div class="arc-sound-info"><div class="arc-sound-title">BSIDE — Interlude</div><div class="arc-sound-artist">SSG SOUND</div></div><div class="arc-sound-dur">3:42</div></div>
+                <div class="arc-sound-track"><div class="arc-sound-num">02</div><div class="arc-sound-info"><div class="arc-sound-title">Night Drift</div><div class="arc-sound-artist">SSG SOUND</div></div><div class="arc-sound-dur">4:15</div></div>
+                <div class="arc-sound-track"><div class="arc-sound-num">03</div><div class="arc-sound-info"><div class="arc-sound-title">FIELD NOTES</div><div class="arc-sound-artist">SSG SOUND</div></div><div class="arc-sound-dur">5:02</div></div>
               </div>
-              <div class="archive-season-body" id="body-25FW" style="display:none;">
-                <div class="archive-season-quote">"길을 찾는 자들을 위하여"</div>
-                <div class="archive-film-card">
-                  <div class="archive-film-thumb">
-                    <div class="archive-film-thumb-text">▶</div>
-                    <div class="archive-film-label">Campaign Film</div>
-                  </div>
-                </div>
-                <div class="archive-lookbook-grid">
-                  <div class="archive-look-thumb"></div>
-                  <div class="archive-look-thumb"></div>
-                  <div class="archive-look-thumb"></div>
-                  <div class="archive-look-thumb"></div>
-                </div>
-              </div>
+              <button class="arc-more-btn">전체 보기 (10곡) →</button>
+              <div class="arc-silence-sub-label" style="margin-top:16px;">Curated — 2026.03</div>
+              <div class="arc-silence-curated-desc">봄날 새벽 한강을 달릴 때 듣기 좋은 것들.</div>
+              <div class="arc-sound-track"><div class="arc-sound-num">01</div><div class="arc-sound-info"><div class="arc-sound-title">Running Up That Hill</div><div class="arc-sound-artist">Kate Bush</div></div><div class="arc-sound-dur">5:00</div></div>
+              <div class="arc-sound-track"><div class="arc-sound-num">02</div><div class="arc-sound-info"><div class="arc-sound-title">Electric Feel</div><div class="arc-sound-artist">MGMT</div></div><div class="arc-sound-dur">3:49</div></div>
+              <div class="arc-sound-track"><div class="arc-sound-num">03</div><div class="arc-sound-info"><div class="arc-sound-title">Midnight City</div><div class="arc-sound-artist">M83</div></div><div class="arc-sound-dur">4:03</div></div>
+              <button class="arc-more-btn">전체 보기 (10곡) →</button>
             </div>
-
-            <div class="archive-season-item" id="season-25SS">
-              <div class="archive-season-header" onclick="toggleSeason('25SS')">
-                <div class="archive-season-left">
-                  <div class="archive-season-name">25SS</div>
-                  <div class="archive-season-title">CHECK POINT</div>
-                </div>
-                <div class="archive-season-toggle">+</div>
-              </div>
-              <div class="archive-season-body" id="body-25SS" style="display:none;">
-                <div class="archive-season-quote">"멈춤도 여정의 일부다"</div>
-                <div class="archive-film-card">
-                  <div class="archive-film-thumb">
-                    <div class="archive-film-thumb-text">▶</div>
-                    <div class="archive-film-label">Campaign Film</div>
-                  </div>
-                </div>
-                <div class="archive-lookbook-grid">
-                  <div class="archive-look-thumb"></div>
-                  <div class="archive-look-thumb"></div>
-                  <div class="archive-look-thumb"></div>
-                  <div class="archive-look-thumb"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="archive-season-item" id="season-24FW">
-              <div class="archive-season-header" onclick="toggleSeason('24FW')">
-                <div class="archive-season-left">
-                  <div class="archive-season-name">24FW</div>
-                  <div class="archive-season-title">PIVOT / NODE</div>
-                </div>
-                <div class="archive-season-toggle">+</div>
-              </div>
-              <div class="archive-season-body" id="body-24FW" style="display:none;">
-                <div class="archive-season-quote">"전환점에서 바라본 풍경"</div>
-                <div class="archive-film-card">
-                  <div class="archive-film-thumb">
-                    <div class="archive-film-thumb-text">▶</div>
-                    <div class="archive-film-label">Campaign Film</div>
-                  </div>
-                </div>
-                <div class="archive-lookbook-grid">
-                  <div class="archive-look-thumb"></div>
-                  <div class="archive-look-thumb"></div>
-                  <div class="archive-look-thumb"></div>
-                  <div class="archive-look-thumb"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="archive-season-item" id="season-24SS">
-              <div class="archive-season-header" onclick="toggleSeason('24SS')">
-                <div class="archive-season-left">
-                  <div class="archive-season-name">24SS</div>
-                  <div class="archive-season-title">SCOPE</div>
-                </div>
-                <div class="archive-season-toggle">+</div>
-              </div>
-              <div class="archive-season-body" id="body-24SS" style="display:none;">
-                <div class="archive-season-quote">"시야를 확장하다"</div>
-                <div class="archive-film-card">
-                  <div class="archive-film-thumb">
-                    <div class="archive-film-thumb-text">▶</div>
-                    <div class="archive-film-label">Campaign Film</div>
-                  </div>
-                </div>
-                <div class="archive-lookbook-grid">
-                  <div class="archive-look-thumb"></div>
-                  <div class="archive-look-thumb"></div>
-                  <div class="archive-look-thumb"></div>
-                  <div class="archive-look-thumb"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="archive-season-item" id="season-23FW">
-              <div class="archive-season-header" onclick="toggleSeason('23FW')">
-                <div class="archive-season-left">
-                  <div class="archive-season-name">23FW</div>
-                  <div class="archive-season-title">THIRD KIT</div>
-                </div>
-                <div class="archive-season-toggle">+</div>
-              </div>
-              <div class="archive-season-body" id="body-23FW" style="display:none;">
-                <div class="archive-season-quote">"세 번째 유니폼"</div>
-                <div class="archive-film-card">
-                  <div class="archive-film-thumb">
-                    <div class="archive-film-thumb-text">▶</div>
-                    <div class="archive-film-label">Campaign Film</div>
-                  </div>
-                </div>
-                <div class="archive-lookbook-grid">
-                  <div class="archive-look-thumb"></div>
-                  <div class="archive-look-thumb"></div>
-                  <div class="archive-look-thumb"></div>
-                  <div class="archive-look-thumb"></div>
-                </div>
-              </div>
-            </div>
-
           </div>
+
         </div>
 
         <!-- NODE -->
@@ -1335,60 +1854,247 @@
             <!-- 세션 -->
             <div class="node-section">
               <div class="node-section-label">Live Sessions</div>
+              <button class="liverun-create-btn" onclick="openCreateSession()">+ Create Session</button>
               <div class="liverun-session">
                 <div class="liverun-session-info">
                   <div class="liverun-session-name">Han River Evening Run</div>
                   <div class="liverun-session-meta">오늘 19:00 시작 · 5KM · 3명 참여중</div>
                 </div>
-                <button class="liverun-session-btn">Join</button>
+                <button class="liverun-session-btn" onclick="openWaitingRoom('Han River Evening Run', '5KM · 3명 참여중')">Join</button>
               </div>
               <div class="liverun-session">
                 <div class="liverun-session-info">
                   <div class="liverun-session-name">Seongsu Morning Crew</div>
                   <div class="liverun-session-meta">내일 06:30 시작 · 8KM · 5명 참여중</div>
                 </div>
-                <button class="liverun-session-btn">Join</button>
+                <button class="liverun-session-btn" onclick="openWaitingRoom('Seongsu Morning Crew', '8KM · 5명 참여중')">Join</button>
               </div>
-              <button class="liverun-create-btn" onclick="alert('세션 만들기는 실제 앱에서 구현 예정!')">+ Create Session</button>
             </div>
           </div>
 
         </div>
 
-        <!-- SONIC -->
-        <div class="tab-page" id="page-SONIC">
-          <div class="sonic-section">
-            <div class="sonic-now">
-              <div class="sonic-now-label">Now Playing</div>
-              <div class="sonic-disc" id="sonicDisc"><div class="sonic-disc-inner"></div></div>
-              <div>
-                <div class="sonic-track-title" id="sonicTitle">BSIDE — Interlude</div>
-                <div class="sonic-track-artist" id="sonicArtist">SSG SOUND VOL.3</div>
-              </div>
-              <div class="sonic-controls">
-                <button class="sonic-ctrl-btn" onclick="sonicPrev()">⟨</button>
-                <button class="sonic-play-btn" id="sonicPlayBtn" onclick="toggleSonic()">▶</button>
-                <button class="sonic-ctrl-btn" onclick="sonicNext()">⟩</button>
-              </div>
+      </div>
+
+      <!-- 라이브런 화면 -->
+      <div class="session-overlay" id="liveRunScreen">
+        <div class="liverun-screen-header">
+          <div class="liverun-screen-title" id="liveRunTitle">Han River Evening Run</div>
+          <button class="liverun-screen-close" onclick="closeLiveRun()">✕</button>
+        </div>
+        <div class="liverun-screen-tabs">
+          <button class="liverun-screen-tab active" onclick="switchLiveTab('map', this)">Map</button>
+          <button class="liverun-screen-tab" onclick="switchLiveTab('rank', this)">Rank</button>
+        </div>
+
+        <!-- 맵 뷰 -->
+        <div class="liverun-view active" id="liveView-map">
+          <div class="liverun-mini-map">
+            <div class="liverun-map-grid"></div>
+            <svg class="liverun-map-svg" viewBox="0 0 390 380" fill="none">
+              <line x1="0" y1="100" x2="390" y2="100" stroke="rgba(255,255,255,0.05)" stroke-width="8"/>
+              <line x1="0" y1="220" x2="390" y2="220" stroke="rgba(255,255,255,0.04)" stroke-width="6"/>
+              <line x1="130" y1="0" x2="130" y2="380" stroke="rgba(255,255,255,0.05)" stroke-width="6"/>
+              <line x1="260" y1="0" x2="260" y2="380" stroke="rgba(255,255,255,0.04)" stroke-width="5"/>
+            </svg>
+            <svg style="position:absolute;inset:0;width:100%;height:100%;" viewBox="0 0 390 380" fill="none">
+              <path id="liveRoutePath" d="" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+            </svg>
+            <div style="position:absolute;top:48%;left:50%;transform:translate(-50%,-50%);z-index:2;">
+              <div style="width:10px;height:10px;background:#fff;border-radius:50%;box-shadow:0 0 0 6px rgba(255,255,255,0.15);"></div>
             </div>
-            <div class="sonic-section-label">Playlist — RUN TAPE VOL.3</div>
-            <div class="sonic-playlist-item" onclick="sonicPlay(0)"><div class="sonic-pl-num">01</div><div class="sonic-pl-info"><div class="sonic-pl-title">BSIDE — Interlude</div><div class="sonic-pl-artist">SSG SOUND</div></div><div class="sonic-pl-duration">3:42</div></div>
-            <div class="sonic-playlist-item" onclick="sonicPlay(1)"><div class="sonic-pl-num">02</div><div class="sonic-pl-info"><div class="sonic-pl-title">Night Drift</div><div class="sonic-pl-artist">SSG SOUND</div></div><div class="sonic-pl-duration">4:15</div></div>
-            <div class="sonic-playlist-item" onclick="sonicPlay(2)"><div class="sonic-pl-num">03</div><div class="sonic-pl-info"><div class="sonic-pl-title">FIELD NOTES</div><div class="sonic-pl-artist">SSG SOUND</div></div><div class="sonic-pl-duration">5:02</div></div>
-            <div class="sonic-playlist-item" onclick="sonicPlay(3)"><div class="sonic-pl-num">04</div><div class="sonic-pl-info"><div class="sonic-pl-title">Concrete Garden</div><div class="sonic-pl-artist">SSG SOUND</div></div><div class="sonic-pl-duration">3:58</div></div>
-            <div class="sonic-playlist-item" onclick="sonicPlay(4)"><div class="sonic-pl-num">05</div><div class="sonic-pl-info"><div class="sonic-pl-title">Exit Ramp</div><div class="sonic-pl-artist">SSG SOUND</div></div><div class="sonic-pl-duration">4:33</div></div>
+            <div class="liverun-timer-wrap">
+              <div class="liverun-timer-label">⏱ <span id="liveTimer">00:00</span></div>
+            </div>
           </div>
         </div>
 
+        <!-- 랭킹 뷰 -->
+        <div class="liverun-view" id="liveView-rank">
+          <div class="liverun-full-rank">
+            <div class="liverun-full-rank-item rank1">
+              <div class="liverun-full-rank-pos">01</div>
+              <div class="liverun-full-rank-avatar me">LW</div>
+              <div class="liverun-full-rank-info">
+                <div class="liverun-full-rank-name">Lee Wonsuk</div>
+                <div class="liverun-full-rank-dist" id="rankMyDist">0.00 KM</div>
+              </div>
+              <div class="liverun-full-rank-pace" id="rankMyPace">--'--"</div>
+            </div>
+            <div class="liverun-full-rank-item">
+              <div class="liverun-full-rank-pos">02</div>
+              <div class="liverun-full-rank-avatar">KJ</div>
+              <div class="liverun-full-rank-info">
+                <div class="liverun-full-rank-name">Kim Jihoon</div>
+                <div class="liverun-full-rank-dist" id="rankKjDist">0.00 KM</div>
+              </div>
+              <div class="liverun-full-rank-pace">5'44"</div>
+            </div>
+            <div class="liverun-full-rank-item">
+              <div class="liverun-full-rank-pos">03</div>
+              <div class="liverun-full-rank-avatar">PY</div>
+              <div class="liverun-full-rank-info">
+                <div class="liverun-full-rank-name">Park Yuna</div>
+                <div class="liverun-full-rank-dist" id="rankPyDist">0.00 KM</div>
+              </div>
+              <div class="liverun-full-rank-pace">6'12"</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 하단 스탯 -->
+        <div class="liverun-screen-stats">
+          <div class="liverun-screen-stat">
+            <div class="liverun-screen-stat-label">Distance</div>
+            <div class="liverun-screen-stat-value" id="liveDistVal">0.00 <span style="font-size:12px;">km</span></div>
+          </div>
+          <div class="liverun-screen-divider"></div>
+          <div class="liverun-screen-stat">
+            <div class="liverun-screen-stat-label">Calories</div>
+            <div class="liverun-screen-stat-value" id="liveCalVal">0 <span style="font-size:12px;">kcal</span></div>
+          </div>
+        </div>
+        <div class="liverun-screen-controls">
+          <button class="liverun-ctrl-btn" onclick="toggleMusicPanel('live')">♪</button>
+          <button class="liverun-stop-btn" onclick="closeLiveRun()">Stop</button>
+          <button class="liverun-ctrl-btn">🔒</button>
+        </div>
+        <div class="run-music-panel" id="liveMusicPanel">
+          <div class="run-music-tabs">
+            <button class="run-music-tab active" onclick="switchLiveMusicTab('official', this)">Official</button>
+            <button class="run-music-tab" onclick="switchLiveMusicTab('curated', this)">Curated</button>
+          </div>
+          <div class="run-music-list active" id="liveMusicTab-official">
+            <div class="run-music-season-row">
+              <button class="run-music-season active" onclick="switchSeason(this, 'live', '26SS')">26SS</button>
+              <button class="run-music-season" onclick="switchSeason(this, 'live', '25FW')">25FW</button>
+              <button class="run-music-season" onclick="switchSeason(this, 'live', '25SS')">25SS</button>
+              <button class="run-music-season" onclick="switchSeason(this, 'live', '24FW')">24FW</button>
+            </div>
+            <div class="run-music-tracks" id="live-tracks-26SS">
+              <div class="run-music-track" onclick="selectTrack(this, 'BSIDE — Interlude', 'SSG SOUND')"><div class="run-music-num">01</div><div class="run-music-info"><div class="run-music-title">BSIDE — Interlude</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">3:42</div></div>
+              <div class="run-music-track" onclick="selectTrack(this, 'Night Drift', 'SSG SOUND')"><div class="run-music-num">02</div><div class="run-music-info"><div class="run-music-title">Night Drift</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">4:15</div></div>
+              <div class="run-music-track" onclick="selectTrack(this, 'FIELD NOTES', 'SSG SOUND')"><div class="run-music-num">03</div><div class="run-music-info"><div class="run-music-title">FIELD NOTES</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">5:02</div></div>
+            </div>
+            <div class="run-music-tracks" id="live-tracks-25FW" style="display:none;">
+              <div class="run-music-track" onclick="selectTrack(this, 'Wayfinder I', 'SSG SOUND')"><div class="run-music-num">01</div><div class="run-music-info"><div class="run-music-title">Wayfinder I</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">4:10</div></div>
+              <div class="run-music-track" onclick="selectTrack(this, 'Trail Dusk', 'SSG SOUND')"><div class="run-music-num">02</div><div class="run-music-info"><div class="run-music-title">Trail Dusk</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">3:55</div></div>
+              <div class="run-music-track" onclick="selectTrack(this, 'Cold Start', 'SSG SOUND')"><div class="run-music-num">03</div><div class="run-music-info"><div class="run-music-title">Cold Start</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">4:30</div></div>
+            </div>
+            <div class="run-music-tracks" id="live-tracks-25SS" style="display:none;">
+              <div class="run-music-track" onclick="selectTrack(this, 'Checkpoint', 'SSG SOUND')"><div class="run-music-num">01</div><div class="run-music-info"><div class="run-music-title">Checkpoint</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">3:48</div></div>
+              <div class="run-music-track" onclick="selectTrack(this, 'Interval', 'SSG SOUND')"><div class="run-music-num">02</div><div class="run-music-info"><div class="run-music-title">Interval</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">4:22</div></div>
+              <div class="run-music-track" onclick="selectTrack(this, 'Pace Setter', 'SSG SOUND')"><div class="run-music-num">03</div><div class="run-music-info"><div class="run-music-title">Pace Setter</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">5:10</div></div>
+            </div>
+            <div class="run-music-tracks" id="live-tracks-24FW" style="display:none;">
+              <div class="run-music-track" onclick="selectTrack(this, 'Node I', 'SSG SOUND')"><div class="run-music-num">01</div><div class="run-music-info"><div class="run-music-title">Node I</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">4:05</div></div>
+              <div class="run-music-track" onclick="selectTrack(this, 'Pivot', 'SSG SOUND')"><div class="run-music-num">02</div><div class="run-music-info"><div class="run-music-title">Pivot</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">3:50</div></div>
+              <div class="run-music-track" onclick="selectTrack(this, 'Late Hour', 'SSG SOUND')"><div class="run-music-num">03</div><div class="run-music-info"><div class="run-music-title">Late Hour</div><div class="run-music-artist">SSG SOUND</div></div><div class="run-music-dur">4:44</div></div>
+            </div>
+          </div>
+          <div class="run-music-list" id="liveMusicTab-curated">
+            <div class="run-music-track" onclick="selectTrack(this, 'Running Up That Hill', 'Kate Bush')"><div class="run-music-num">01</div><div class="run-music-info"><div class="run-music-title">Running Up That Hill</div><div class="run-music-artist">Kate Bush</div></div><div class="run-music-dur">5:00</div></div>
+            <div class="run-music-track" onclick="selectTrack(this, 'Electric Feel', 'MGMT')"><div class="run-music-num">02</div><div class="run-music-info"><div class="run-music-title">Electric Feel</div><div class="run-music-artist">MGMT</div></div><div class="run-music-dur">3:49</div></div>
+            <div class="run-music-track" onclick="selectTrack(this, 'Midnight City', 'M83')"><div class="run-music-num">03</div><div class="run-music-info"><div class="run-music-title">Midnight City</div><div class="run-music-artist">M83</div></div><div class="run-music-dur">4:03</div></div>
+          </div>
+          <div class="run-music-now">
+            <div class="run-music-now-info">
+              <div class="run-music-now-title" id="liveNowTitle">곡을 선택하세요</div>
+              <div class="run-music-now-artist" id="liveNowArtist">—</div>
+            </div>
+            <button class="run-music-play" onclick="toggleMusicPlay()">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 세션 만들기 오버레이 -->
+      <div class="session-overlay" id="createSessionOverlay">
+        <div class="session-overlay-header">
+          <div class="session-overlay-title">Create Session</div>
+          <button class="session-overlay-close" onclick="closeCreateSession()">✕</button>
+        </div>
+        <div class="session-overlay-body">
+          <div class="session-field">
+            <div class="session-field-label">Session Name *</div>
+            <input class="session-input" type="text" placeholder="ex. Han River Night Run">
+          </div>
+          <div class="session-field">
+            <div class="session-field-label">Password <span style="color:#444;font-size:8px;letter-spacing:1px;">미입력 시 공개 세션</span></div>
+            <div class="session-pin-row">
+              <input class="session-pin" type="text" maxlength="1" inputmode="numeric">
+              <input class="session-pin" type="text" maxlength="1" inputmode="numeric">
+              <input class="session-pin" type="text" maxlength="1" inputmode="numeric">
+              <input class="session-pin" type="text" maxlength="1" inputmode="numeric">
+            </div>
+          </div>
+          <div class="session-field">
+            <div class="session-field-label">Mode *</div>
+            <div class="session-mode-row">
+              <button class="session-mode-btn active" onclick="selectMode(this)">
+                <div class="session-mode-icon">⏱</div>
+                <div class="session-mode-name">Time Run</div>
+              </button>
+              <button class="session-mode-btn" onclick="selectMode(this)">
+                <div class="session-mode-icon">📍</div>
+                <div class="session-mode-name">Distance Run</div>
+              </button>
+            </div>
+            <input class="session-input" type="text" placeholder="목표 입력 (ex. 30min / 5km)" style="margin-top:8px;">
+          </div>
+          <div class="session-field">
+            <div class="session-field-label">Pace</div>
+            <div class="session-tag-row">
+              <button class="session-tag">4분대↓</button>
+              <button class="session-tag">5분대</button>
+              <button class="session-tag active">6분대</button>
+              <button class="session-tag">7분대</button>
+              <button class="session-tag">8분대↑</button>
+            </div>
+          </div>
+          <div class="session-field">
+            <div class="session-field-label">Age</div>
+            <div class="session-tag-row">
+              <button class="session-tag">20대↓</button>
+              <button class="session-tag active">30대</button>
+              <button class="session-tag">40대</button>
+              <button class="session-tag">50대</button>
+              <button class="session-tag">60대↑</button>
+            </div>
+          </div>
+          <button class="session-submit-btn" onclick="openWaitingRoom('My Session', '설정한 세션')">Create →</button>
+        </div>
+      </div>
+
+      <!-- 대기실 오버레이 -->
+      <div class="session-overlay" id="waitingRoomOverlay">
+        <div class="waiting-header">
+          <button class="waiting-back" onclick="closeWaitingRoom()">←</button>
+          <div class="waiting-tags" id="waitingTags">#5KM #6분대 #30대</div>
+        </div>
+        <div class="waiting-main">
+          <div class="waiting-sub">잠시 후 러닝이 시작됩니다</div>
+          <div class="waiting-count" id="waitingCount">10</div>
+          <div class="waiting-ready">READY</div>
+        </div>
+        <div class="waiting-chat-area">
+          <div class="waiting-chat-messages" id="waitingChat">
+            <div class="waiting-chat-msg system">세션에 참여했습니다. 함께 달려요! 🏃</div>
+            <div class="waiting-chat-msg">KJ: 오늘 날씨 좋네요</div>
+            <div class="waiting-chat-msg">PY: 화이팅!!</div>
+          </div>
+          <div class="waiting-chat-input-row">
+            <input class="waiting-chat-input" type="text" placeholder="메시지 입력...">
+            <button class="waiting-chat-send">↑</button>
+          </div>
+        </div>
       </div>
 
       <!-- Tab Bar -->
       <div class="tab-bar" id="tabBar">
         <button class="tab-item active" data-tab="HOME">Home</button>
         <button class="tab-item" data-tab="ACTIVITY">Activity</button>
-        <button class="tab-item" data-tab="GEAR">Archive</button>
         <button class="tab-item" data-tab="NODE">Node</button>
-        <button class="tab-item" data-tab="SONIC">Sonic</button>
+        <button class="tab-item" data-tab="GEAR">Archive</button>
       </div>
 
     </div>
@@ -1415,6 +2121,180 @@
     document.getElementById('page-' + tab.dataset.tab).classList.add('active');
   });
 
+  // 음악 패널
+  let musicPlaying = false;
+
+  function toggleMusicPanel(type) {
+    const panelId = type === 'run' ? 'runMusicPanel' : 'liveMusicPanel';
+    const panel = document.getElementById(panelId);
+    panel.classList.toggle('open');
+  }
+
+  function switchSeason(btn, type, season) {
+    const prefix = type === 'run' ? 'run' : 'live';
+    const panel = type === 'run' ? 'runMusicPanel' : 'liveMusicPanel';
+    document.querySelectorAll('#' + panel + ' .run-music-season').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#' + panel + ' .run-music-tracks').forEach(t => t.style.display = 'none');
+    document.getElementById(prefix + '-tracks-' + season).style.display = 'block';
+  }
+
+  function switchMusicTab(tab, btn) {
+    document.querySelectorAll('#runMusicPanel .run-music-tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('#runMusicPanel .run-music-list').forEach(l => l.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('musicTab-' + tab).classList.add('active');
+  }
+
+  function switchLiveMusicTab(tab, btn) {
+    document.querySelectorAll('#liveMusicPanel .run-music-tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('#liveMusicPanel .run-music-list').forEach(l => l.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('liveMusicTab-' + tab).classList.add('active');
+  }
+
+  function selectTrack(el, title, artist) {
+    document.querySelectorAll('.run-music-track').forEach(t => t.classList.remove('playing'));
+    el.classList.add('playing');
+    // 러닝 화면
+    if (document.getElementById('nowTitle')) {
+      document.getElementById('nowTitle').textContent = title;
+      document.getElementById('nowArtist').textContent = artist;
+    }
+    // 라이브런 화면
+    if (document.getElementById('liveNowTitle')) {
+      document.getElementById('liveNowTitle').textContent = title;
+      document.getElementById('liveNowArtist').textContent = artist;
+    }
+    musicPlaying = true;
+    document.querySelectorAll('.run-music-play').forEach(b => b.textContent = '⏸');
+  }
+
+  function toggleMusicPlay() {
+    musicPlaying = !musicPlaying;
+    document.querySelectorAll('.run-music-play').forEach(b => b.textContent = musicPlaying ? '⏸' : '▶');
+  }
+
+  // 라이브런 탭 전환
+  function switchLiveTab(tab, btn) {
+    document.querySelectorAll('.liverun-screen-tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.liverun-view').forEach(v => v.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('liveView-' + tab).classList.add('active');
+  }
+
+  // 라이브런 인터벌
+  let liveInterval = null;
+  let liveSecs = 0, liveDist = 0, kjDist = 0, pyDist = 0;
+  let liveRoutePoints = [];
+
+  function startLiveRun(name) {
+    document.getElementById('liveRunTitle').textContent = name;
+    document.getElementById('liveRunScreen').classList.add('active');
+    document.getElementById('tabBar').style.display = 'none';
+    liveSecs = 0; liveDist = 0; kjDist = 0; pyDist = 0;
+    liveRoutePoints = [[195, 150]];
+
+    if (liveInterval) clearInterval(liveInterval);
+    liveInterval = setInterval(() => {
+      liveSecs++;
+      const m = String(Math.floor(liveSecs / 60)).padStart(2, '0');
+      const s = String(liveSecs % 60).padStart(2, '0');
+      document.getElementById('liveTimer').textContent = m + ':' + s;
+
+      liveDist += 0.003;
+      kjDist += 0.0025 + Math.random() * 0.001;
+      pyDist += 0.002 + Math.random() * 0.001;
+
+      const maxDist = Math.max(liveDist, kjDist, pyDist);
+
+      document.getElementById('myDist').textContent = liveDist.toFixed(2) + 'km';
+      document.getElementById('kjDist').textContent = kjDist.toFixed(2) + 'km';
+      document.getElementById('pyDist').textContent = pyDist.toFixed(2) + 'km';
+      document.getElementById('myBar').style.width = (liveDist / maxDist * 100) + '%';
+      document.getElementById('kjBar').style.width = (kjDist / maxDist * 100) + '%';
+      document.getElementById('pyBar').style.width = (pyDist / maxDist * 100) + '%';
+
+      document.getElementById('liveDistVal').innerHTML = liveDist.toFixed(2) + ' <span style="font-size:12px;">km</span>';
+      document.getElementById('liveCalVal').innerHTML = Math.floor(liveDist * 60) + ' <span style="font-size:12px;">kcal</span>';
+
+      document.getElementById('rankMyDist').textContent = liveDist.toFixed(2) + ' KM';
+      document.getElementById('rankKjDist').textContent = kjDist.toFixed(2) + ' KM';
+      document.getElementById('rankPyDist').textContent = pyDist.toFixed(2) + ' KM';
+      const ps = String(Math.floor(30 + Math.random() * 20)).padStart(2, '0');
+      document.getElementById('rankMyPace').textContent = "5'" + ps + '"';
+
+      // 경로
+      const last = liveRoutePoints[liveRoutePoints.length - 1];
+      liveRoutePoints.push([last[0] + (Math.random() - 0.5) * 8, last[1] + (Math.random() - 0.48) * 5]);
+      if (liveRoutePoints.length > 80) liveRoutePoints.shift();
+      document.getElementById('liveRoutePath').setAttribute('d', 'M ' + liveRoutePoints.map(p => p[0] + ' ' + p[1]).join(' L '));
+    }, 1000);
+  }
+
+  function closeLiveRun() {
+    clearInterval(liveInterval);
+    document.getElementById('liveRunScreen').classList.remove('active');
+    document.getElementById('tabBar').style.display = 'flex';
+  }
+
+  // 세션 만들기
+  function openCreateSession() {
+    document.getElementById('createSessionOverlay').classList.add('active');
+  }
+
+  function closeCreateSession() {
+    document.getElementById('createSessionOverlay').classList.remove('active');
+  }
+
+  // 대기실
+  let waitingInterval = null;
+
+  function openWaitingRoom(name, meta) {
+    closeCreateSession();
+    document.getElementById('waitingTags').textContent = '#' + name.replace(/ /g, '') + ' #6분대 #30대';
+    document.getElementById('waitingRoomOverlay').classList.add('active');
+    document.getElementById('tabBar').style.display = 'none';
+
+    let count = 10;
+    document.getElementById('waitingCount').textContent = count;
+
+    if (waitingInterval) clearInterval(waitingInterval);
+    waitingInterval = setInterval(() => {
+      count--;
+      document.getElementById('waitingCount').textContent = count;
+      if (count <= 0) {
+        clearInterval(waitingInterval);
+        closeWaitingRoom();
+        startLiveRun(name);
+      }
+    }, 1000);
+  }
+
+  function closeWaitingRoom() {
+    clearInterval(waitingInterval);
+    document.getElementById('waitingRoomOverlay').classList.remove('active');
+    document.getElementById('tabBar').style.display = 'flex';
+  }
+
+  // 세션 태그 토글
+  document.querySelectorAll('.session-tag').forEach(tag => {
+    tag.addEventListener('click', () => tag.classList.toggle('active'));
+  });
+
+  // 모드 선택
+  function selectMode(btn) {
+    document.querySelectorAll('.session-mode-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  // PIN 자동 포커스
+  document.querySelectorAll('.session-pin').forEach((pin, i, pins) => {
+    pin.addEventListener('input', () => {
+      if (pin.value && i < pins.length - 1) pins[i + 1].focus();
+    });
+  });
+
   function switchNode(seg) {
     document.querySelectorAll('.node-seg-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.node-seg-content').forEach(c => c.classList.remove('active'));
@@ -1427,6 +2307,28 @@
     const el = document.getElementById('liveTotal');
     if (el) el.textContent = 8 + Math.floor(Math.random() * 8);
   }, 5000);
+
+  function selectActivity(type) {
+    if (type === 'running') {
+      document.getElementById('activitySelect').style.display = 'none';
+      document.getElementById('activityRunning').style.display = 'block';
+    }
+  }
+
+  function backToActivitySelect() {
+    document.getElementById('activityRunning').style.display = 'none';
+    document.getElementById('activitySelect').style.display = 'block';
+  }
+
+  // 탭 전환 시 활동 선택으로 리셋
+  const origTabClick = document.getElementById('tabBar').onclick;
+  document.getElementById('tabBar').addEventListener('click', (e) => {
+    const tab = e.target.closest('.tab-item');
+    if (tab && tab.dataset.tab === 'ACTIVITY') {
+      document.getElementById('activitySelect').style.display = 'block';
+      document.getElementById('activityRunning').style.display = 'none';
+    }
+  });
 
   function openMypage() { document.getElementById('mypageScreen').classList.add('active'); }
   function closeMypage() { document.getElementById('mypageScreen').classList.remove('active'); }
@@ -1489,31 +2391,39 @@
 
   function shareCard() { alert('인스타 공유 카드는 실제 앱에서 구현 예정!'); }
 
-  const tracks = [
-    { title: 'BSIDE — Interlude', artist: 'SSG SOUND VOL.3' },
-    { title: 'Night Drift', artist: 'SSG SOUND VOL.3' },
-    { title: 'FIELD NOTES', artist: 'SSG SOUND VOL.3' },
-    { title: 'Concrete Garden', artist: 'SSG SOUND VOL.3' },
-    { title: 'Exit Ramp', artist: 'SSG SOUND VOL.3' },
-  ];
+  // Archive 시즌 상세
+  const seasonData = {
+    '26SS': { tracks: [['BSIDE — Interlude','SSG SOUND','3:42'],['Night Drift','SSG SOUND','4:15'],['FIELD NOTES','SSG SOUND','5:02']] },
+    '25FW': { tracks: [['Wayfinder I','SSG SOUND','4:10'],['Trail Dusk','SSG SOUND','3:55'],['Cold Start','SSG SOUND','4:30']] },
+    '25SS': { tracks: [['Checkpoint','SSG SOUND','3:48'],['Interval','SSG SOUND','4:22'],['Pace Setter','SSG SOUND','5:10']] },
+    '24FW': { tracks: [['Node I','SSG SOUND','4:05'],['Pivot','SSG SOUND','3:50'],['Late Hour','SSG SOUND','4:44']] },
+    '24SS': { tracks: [['Scope I','SSG SOUND','4:20'],['Wide Open','SSG SOUND','3:40'],['Horizon','SSG SOUND','5:15']] },
+    '23FW': { tracks: [['Third Kit I','SSG SOUND','3:55'],['Away','SSG SOUND','4:10'],['Uniform','SSG SOUND','4:30']] },
+    '23SS': { tracks: [['Mercury','SSG SOUND','3:42'],['Swift','SSG SOUND','4:00'],['Fluid','SSG SOUND','3:55']] },
+    '22FW': { tracks: [['Shelter I','SSG SOUND','4:15'],['Cover','SSG SOUND','3:48'],['Haven','SSG SOUND','5:00']] },
+  };
 
-  let sonicPlaying = false, sonicCurrent = 0;
+  function openSeason(season, title, quote) {
+    document.getElementById('archiveList').style.display = 'none';
+    document.getElementById('archiveDetail').style.display = 'block';
+    document.getElementById('detailSeason').textContent = season;
+    document.getElementById('detailTitle').textContent = title;
+    document.getElementById('detailQuote').textContent = '"' + quote + '"';
 
-  function toggleSonic() {
-    sonicPlaying = !sonicPlaying;
-    document.getElementById('sonicPlayBtn').textContent = sonicPlaying ? '⏸' : '▶';
-    document.getElementById('sonicDisc').classList.toggle('playing', sonicPlaying);
+    const tracks = seasonData[season] ? seasonData[season].tracks : [];
+    const container = document.getElementById('detailTracks');
+    container.innerHTML = tracks.map((t, i) =>
+      `<div class="arc-sound-track"><div class="arc-sound-num">0${i+1}</div><div class="arc-sound-info"><div class="arc-sound-title">${t[0]}</div><div class="arc-sound-artist">${t[1]}</div></div><div class="arc-sound-dur">${t[2]}</div></div>`
+    ).join('');
+
+    // 스크롤 맨 위로
+    document.getElementById('page-GEAR').closest('.tab-content').scrollTop = 0;
   }
 
-  function sonicPlay(idx) {
-    sonicCurrent = idx;
-    document.getElementById('sonicTitle').textContent = tracks[idx].title;
-    document.getElementById('sonicArtist').textContent = tracks[idx].artist;
-    if (!sonicPlaying) toggleSonic();
+  function closeSeason() {
+    document.getElementById('archiveDetail').style.display = 'none';
+    document.getElementById('archiveList').style.display = 'block';
   }
-
-  function sonicNext() { sonicPlay((sonicCurrent + 1) % tracks.length); }
-  function sonicPrev() { sonicPlay((sonicCurrent - 1 + tracks.length) % tracks.length); }
 
   function toggleSeason(id) {
     const item = document.getElementById('season-' + id);
