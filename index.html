@@ -456,6 +456,271 @@
   .history-pace { font-size: 11px; color: #888; letter-spacing: 1px; }
   .history-pt { font-size: 9px; color: #555; letter-spacing: 1px; margin-top: 4px; }
 
+  /* === RUNNING SCREEN === */
+  .run-screen {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px 24px 48px;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .run-screen.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .run-screen-label {
+    font-size: 9px;
+    color: #444;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .run-screen-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .run-screen-dist {
+    font-size: 80px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -2px;
+    line-height: 1;
+  }
+
+  .run-screen-dist-unit {
+    font-size: 14px;
+    color: #555;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .run-screen-stats {
+    display: flex;
+    gap: 0;
+    width: 100%;
+    margin-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .run-screen-stat {
+    flex: 1;
+    text-align: center;
+    padding: 20px 8px;
+  }
+
+  .run-screen-stat + .run-screen-stat {
+    border-left: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .run-screen-stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  .run-screen-stat-label {
+    font-size: 8px;
+    color: #444;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .run-stop-btn {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: transparent;
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    transition: border-color 0.2s;
+  }
+
+  .run-stop-btn:hover { border-color: #fff; }
+
+  /* === RESULT SCREEN === */
+  .result-screen {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    overflow-y: auto;
+  }
+
+  .result-screen.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .result-map {
+    width: 100%;
+    height: 200px;
+    background: #111;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .result-map-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .result-map-route {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .result-map-route svg {
+    width: 80%;
+    height: 80%;
+    opacity: 0.6;
+  }
+
+  .result-content {
+    padding: 24px;
+    flex: 1;
+  }
+
+  .result-label {
+    font-size: 9px;
+    color: #444;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .result-dist {
+    font-size: 56px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+
+  .result-dist-unit {
+    font-size: 12px;
+    color: #555;
+    letter-spacing: 3px;
+    margin-top: 4px;
+  }
+
+  .result-stats {
+    display: flex;
+    gap: 0;
+    margin-top: 24px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .result-stat {
+    flex: 1;
+    padding: 16px 8px;
+    text-align: center;
+  }
+
+  .result-stat + .result-stat { border-left: 1px solid rgba(255,255,255,0.1); }
+
+  .result-stat-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  .result-stat-label {
+    font-size: 8px;
+    color: #555;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .result-pt-card {
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 16px;
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .result-pt-label {
+    font-size: 9px;
+    color: #555;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .result-pt-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  .result-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .result-btn {
+    width: 100%;
+    padding: 14px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: transparent;
+    color: #fff;
+    transition: background 0.2s;
+  }
+
+  .result-btn.primary {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+  }
+
+  .result-btn:hover { opacity: 0.8; }
+
   /* Tab bar */
   .tab-bar {
     width: 100%;
@@ -604,7 +869,7 @@
         <!-- Other tabs (placeholder) -->
         <div class="tab-page" id="page-ACTIVITY">
           <div class="run-btn-wrap">
-            <button class="run-btn" id="runBtn" onclick="toggleRun()">
+            <button class="run-btn" id="runBtn" onclick="startRun()">
               <span class="run-btn-icon" id="runIcon">▶</span>
               <span id="runLabel">Start</span>
             </button>
@@ -722,6 +987,63 @@
 
       </div>
 
+      <!-- Running Screen -->
+      <div class="run-screen" id="runScreen">
+        <div class="run-screen-label">Running</div>
+        <div class="run-screen-main">
+          <div class="run-screen-dist" id="rsD">0.00</div>
+          <div class="run-screen-dist-unit">Kilometers</div>
+          <div class="run-screen-stats">
+            <div class="run-screen-stat">
+              <div class="run-screen-stat-value" id="rsP">--'--"</div>
+              <div class="run-screen-stat-label">Pace</div>
+            </div>
+            <div class="run-screen-stat">
+              <div class="run-screen-stat-value" id="rsT">00:00</div>
+              <div class="run-screen-stat-label">Time</div>
+            </div>
+          </div>
+        </div>
+        <button class="run-stop-btn" onclick="stopRun()">Stop</button>
+      </div>
+
+      <!-- Result Screen -->
+      <div class="result-screen" id="resultScreen">
+        <div class="result-map">
+          <div class="result-map-grid"></div>
+          <div class="result-map-route">
+            <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 120 C40 80, 60 100, 80 60 C100 20, 120 40, 140 30 C160 20, 170 50, 180 40" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="20" cy="120" r="4" fill="white"/>
+              <circle cx="180" cy="40" r="4" fill="white" opacity="0.5"/>
+            </svg>
+          </div>
+        </div>
+        <div class="result-content">
+          <div class="result-label">Run Complete</div>
+          <div class="result-dist" id="resDist">0.00</div>
+          <div class="result-dist-unit">KM</div>
+          <div class="result-stats">
+            <div class="result-stat">
+              <div class="result-stat-value" id="resPace">--'--"</div>
+              <div class="result-stat-label">Avg Pace</div>
+            </div>
+            <div class="result-stat">
+              <div class="result-stat-value" id="resTime">00:00</div>
+              <div class="result-stat-label">Time</div>
+            </div>
+          </div>
+          <div class="result-pt-card">
+            <div class="result-pt-label">Points Earned</div>
+            <div class="result-pt-value" id="resPt">+ 0 PT</div>
+          </div>
+          <div class="result-btns">
+            <button class="result-btn primary" onclick="shareCard()">Share to Instagram</button>
+            <button class="result-btn" onclick="saveRun()">Save Run</button>
+          </div>
+        </div>
+      </div>
+
       <div class="tab-bar" id="tabBar">
         <button class="tab-item active" data-tab="STATUS">Status</button>
         <button class="tab-item" data-tab="ACTIVITY">Activity</button>
@@ -745,56 +1067,73 @@
     document.getElementById('main').classList.remove('hidden');
   }
 
-  // Running timer
-  let running = false;
-  function enter() {
-    document.getElementById('splash').classList.add('hidden');
-    document.getElementById('main').classList.remove('hidden');
-  }
-
-  // Running timer
   let running = false;
   let runSeconds = 0;
   let runInterval = null;
-  let distInterval = null;
   let fakeDist = 0;
 
-  function toggleRun() {
-    running = !running;
-    const btn = document.getElementById('runBtn');
-    const icon = document.getElementById('runIcon');
-    const label = document.getElementById('runLabel');
+  function startRun() {
+    // 러닝 화면으로 전환
+    document.getElementById('runScreen').classList.add('active');
+    document.getElementById('tabBar').style.display = 'none';
+    runSeconds = 0;
+    fakeDist = 0;
+    running = true;
 
-    if (running) {
-      btn.classList.add('running');
-      icon.textContent = '⏸';
-      label.textContent = 'Pause';
-      runInterval = setInterval(() => {
-        runSeconds++;
-        const m = String(Math.floor(runSeconds / 60)).padStart(2, '0');
-        const s = String(runSeconds % 60).padStart(2, '0');
-        document.getElementById('runTime').textContent = m + ':' + s;
-        fakeDist += 0.003;
-        document.getElementById('runDist').textContent = fakeDist.toFixed(2);
-        const paceMin = Math.floor(5 + Math.random() * 0.5);
-        const paceSec = String(Math.floor(Math.random() * 60)).padStart(2, '0');
-        document.getElementById('runPace').textContent = paceMin + "'" + paceSec + '"';
-      }, 1000);
-    } else {
-      btn.classList.remove('running');
-      icon.textContent = '▶';
-      label.textContent = 'Start';
-      clearInterval(runInterval);
-    }
+    runInterval = setInterval(() => {
+      runSeconds++;
+      const m = String(Math.floor(runSeconds / 60)).padStart(2, '0');
+      const s = String(runSeconds % 60).padStart(2, '0');
+      document.getElementById('rsT').textContent = m + ':' + s;
+      fakeDist += 0.003;
+      document.getElementById('rsD').textContent = fakeDist.toFixed(2);
+      const paceMin = 5;
+      const paceSec = String(Math.floor(30 + Math.random() * 20)).padStart(2, '0');
+      document.getElementById('rsP').textContent = paceMin + "'" + paceSec + '"';
+    }, 1000);
+  }
+
+  function stopRun() {
+    clearInterval(runInterval);
+    running = false;
+
+    // 결과 화면으로 전환
+    document.getElementById('runScreen').classList.remove('active');
+    document.getElementById('resultScreen').classList.add('active');
+
+    const m = String(Math.floor(runSeconds / 60)).padStart(2, '0');
+    const s = String(runSeconds % 60).padStart(2, '0');
+    document.getElementById('resDist').textContent = fakeDist.toFixed(2);
+    document.getElementById('resTime').textContent = m + ':' + s;
+    document.getElementById('resPace').textContent = "5'42\"";
+    const pt = Math.floor(fakeDist * 5);
+    document.getElementById('resPt').textContent = '+ ' + pt + ' PT';
+  }
+
+  function saveRun() {
+    document.getElementById('resultScreen').classList.remove('active');
+    document.getElementById('tabBar').style.display = 'flex';
+    // ACTIVITY 탭으로 복귀
+    document.querySelectorAll('.tab-item').forEach(t => {
+      t.classList.toggle('active', t.dataset.tab === 'ACTIVITY');
+    });
+    document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-ACTIVITY').classList.add('active');
+    // 리셋
+    document.getElementById('rsD').textContent = '0.00';
+    document.getElementById('rsT').textContent = '00:00';
+    document.getElementById('rsP').textContent = "--'--\"";
+  }
+
+  function shareCard() {
+    alert('인스타 공유 카드 기능은 실제 앱에서 구현 예정입니다!');
   }
 
   document.getElementById('tabBar').addEventListener('click', (e) => {
     const tab = e.target.closest('.tab-item');
     if (!tab) return;
-
     document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
     tab.classList.add('active');
-
     document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + tab.dataset.tab).classList.add('active');
   });
