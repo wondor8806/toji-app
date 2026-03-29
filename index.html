@@ -17,11 +17,7 @@
     font-family: 'Space Mono', monospace;
   }
 
-  .phone-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  .phone-wrapper { display: flex; flex-direction: column; align-items: center; }
 
   .phone-frame {
     width: 390px;
@@ -34,747 +30,782 @@
     overflow: hidden;
   }
 
-  /* Screens */
   .screen {
     position: absolute;
     inset: 0;
     display: flex;
     flex-direction: column;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.4s ease;
   }
 
-  .screen.hidden {
-    opacity: 0;
-    pointer-events: none;
-  }
+  .screen.hidden { opacity: 0; pointer-events: none; }
 
-  /* Splash */
-  .screen-splash {
-    justify-content: center;
-    align-items: center;
-  }
+  /* ── Splash ── */
+  .screen-splash { justify-content: center; align-items: center; background: #000; }
 
-  .splash-title {
-    font-size: 36px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    text-align: center;
-    line-height: 1.2;
-  }
-
-  .splash-sub {
-    font-size: 10px;
-    color: #555;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    margin-top: 12px;
-  }
+  .splash-title { font-size: 48px; font-weight: 700; color: #fff; letter-spacing: 6px; }
+  .splash-sub { font-size: 9px; color: #444; letter-spacing: 5px; text-transform: uppercase; margin-top: 8px; }
 
   .splash-btn {
-    margin-top: 60px;
+    margin-top: 64px;
     padding: 14px 48px;
     background: transparent;
-    border: 1px solid rgba(255,255,255,0.4);
+    border: 1px solid rgba(255,255,255,0.3);
     color: #fff;
     font-family: 'Space Mono', monospace;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 6px;
+    letter-spacing: 5px;
     text-transform: uppercase;
     cursor: pointer;
     transition: border-color 0.2s, background 0.2s;
   }
 
-  .splash-btn:hover {
-    border-color: #fff;
-    background: rgba(255,255,255,0.05);
+  .splash-btn:hover { border-color: #fff; background: rgba(255,255,255,0.05); }
+
+  /* ── App Header ── */
+  .app-header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 5;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9) 60%, transparent);
   }
 
-  /* Main screen */
-  .screen-main {
-    justify-content: flex-start;
+  .app-header-logo { font-size: 12px; font-weight: 700; color: #fff; letter-spacing: 4px; }
+
+  .app-header-profile {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: transparent;
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; font-weight: 700;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color 0.2s;
   }
+
+  .app-header-profile:hover { border-color: #fff; }
+
+  /* ── Tab Content ── */
+  .screen-main { justify-content: flex-start; }
 
   .tab-content {
     flex: 1;
     overflow-y: auto;
     scrollbar-width: none;
+    padding-top: 52px;
   }
 
   .tab-content::-webkit-scrollbar { display: none; }
-
-  /* Tab pages */
-  .tab-page {
-    display: none;
-    padding: 60px 24px 20px;
-  }
-
+  .tab-page { display: none; padding-bottom: 20px; }
   .tab-page.active { display: block; }
 
-  /* Placeholder for non-STATUS tabs */
-  .tab-placeholder {
-    height: 100%;
-    min-height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .tab-placeholder-text {
-    font-size: 24px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-  }
-
-  /* === STATUS TAB === */
-
-  /* User info */
-  .user-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .user-name {
-    font-size: 16px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  .user-grade {
-    font-size: 9px;
-    color: #666;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
-
-  .membership-badge {
-    font-size: 10px;
-    color: #fff;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    border: 1px solid rgba(255,255,255,0.3);
-    padding: 4px 12px;
-  }
-
-  /* Stat cards */
-  .stat-row {
-    display: flex;
-    gap: 0;
-    margin-top: 20px;
-  }
-
-  .stat-card {
-    flex: 1;
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 16px 12px;
-    text-align: center;
-  }
-
-  .stat-card + .stat-card {
-    border-left: none;
-  }
-
-  .stat-label {
-    font-size: 8px;
-    color: #555;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-
-  .stat-value {
-    font-size: 20px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 1px;
-  }
-
-  .stat-unit {
-    font-size: 9px;
-    color: #555;
-    letter-spacing: 1px;
-    margin-top: 4px;
-  }
-
-  /* This month */
-  .section {
-    margin-top: 24px;
-  }
-
-  .section-label {
-    font-size: 9px;
-    color: #555;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-
-  .month-grid {
-    display: flex;
-    gap: 0;
-  }
-
-  .month-item {
-    flex: 1;
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 16px 8px;
-    text-align: center;
-  }
-
-  .month-item + .month-item {
-    border-left: none;
-  }
-
-  .month-value {
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-  }
-
-  .month-desc {
-    font-size: 8px;
-    color: #555;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-top: 6px;
-  }
-
-  /* Events */
-  .event-card {
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 16px;
-    margin-bottom: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .event-info {
-    flex: 1;
-  }
-
-  .event-name {
-    font-size: 11px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .event-date {
-    font-size: 9px;
-    color: #555;
-    letter-spacing: 1px;
-    margin-top: 4px;
-  }
-
-  .event-right {
-    text-align: right;
-    margin-left: 12px;
-  }
-
-  .event-dday {
-    font-size: 12px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 1px;
-  }
-
-  .event-status {
-    font-size: 8px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-top: 4px;
-    padding: 3px 8px;
-    border: 1px solid rgba(255,255,255,0.3);
-    color: #fff;
-    display: inline-block;
-  }
-
-  .event-status.apply {
-    color: #666;
-    border-color: rgba(255,255,255,0.15);
-  }
-
-  /* === ACTIVITY TAB === */
-  .run-btn-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 24px 0 20px;
-  }
-
-  .run-btn {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.3);
-    background: transparent;
-    color: #fff;
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-  }
-
-  .run-btn:hover { border-color: #fff; background: rgba(255,255,255,0.05); }
-  .run-btn.running { border-color: #fff; background: rgba(255,255,255,0.08); }
-
-  .run-btn-icon { font-size: 28px; }
-
-  .run-stats-row {
-    display: flex;
-    gap: 0;
-    width: 100%;
-    margin-top: 4px;
-  }
-
-  .run-stat {
-    flex: 1;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 14px 8px;
-  }
-
-  .run-stat + .run-stat { border-left: none; }
-
-  .run-stat-value {
-    font-size: 22px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 1px;
-  }
-
-  .run-stat-label {
-    font-size: 8px;
-    color: #555;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
-
-  .challenge-card {
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 16px;
-  }
-
-  .challenge-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-  }
-
-  .challenge-title {
-    font-size: 11px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .challenge-pt { font-size: 9px; color: #888; letter-spacing: 1px; }
-
-  .challenge-bar-bg {
-    width: 100%;
-    height: 2px;
-    background: rgba(255,255,255,0.1);
-  }
-
-  .challenge-bar-fill {
-    height: 2px;
-    background: #fff;
-  }
-
-  .challenge-desc {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 8px;
-  }
-
-  .challenge-km { font-size: 9px; color: #555; letter-spacing: 1px; }
-
-  .week-bars {
-    display: flex;
-    align-items: flex-end;
-    gap: 6px;
-    height: 60px;
-    margin-top: 4px;
-  }
-
-  .week-bar-wrap {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    height: 100%;
-    justify-content: flex-end;
-  }
-
-  .week-bar {
-    width: 100%;
-    background: rgba(255,255,255,0.15);
-    border-radius: 1px;
-  }
-
-  .week-bar.today { background: #fff; }
-
-  .week-day { font-size: 8px; color: #444; letter-spacing: 1px; text-transform: uppercase; }
-  .week-day.today { color: #fff; }
-
-  .history-item {
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 14px 16px;
-    margin-bottom: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .history-date { font-size: 9px; color: #555; letter-spacing: 1px; margin-bottom: 4px; }
-  .history-km { font-size: 16px; font-weight: 700; color: #fff; letter-spacing: 1px; }
-  .history-right { text-align: right; }
-  .history-pace { font-size: 11px; color: #888; letter-spacing: 1px; }
-  .history-pt { font-size: 9px; color: #555; letter-spacing: 1px; margin-top: 4px; }
-
-  /* === RUNNING SCREEN === */
-  .run-screen {
-    position: absolute;
-    inset: 0;
-    background: #000;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 60px 24px 48px;
-    z-index: 10;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-  }
-
-  .run-screen.active {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .run-screen-label {
-    font-size: 9px;
-    color: #444;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    text-align: center;
-  }
-
-  .run-screen-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .run-screen-dist {
-    font-size: 80px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: -2px;
-    line-height: 1;
-  }
-
-  .run-screen-dist-unit {
-    font-size: 14px;
-    color: #555;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-  }
-
-  .run-screen-stats {
-    display: flex;
-    gap: 0;
-    width: 100%;
-    margin-top: 32px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .run-screen-stat {
-    flex: 1;
-    text-align: center;
-    padding: 20px 8px;
-  }
-
-  .run-screen-stat + .run-screen-stat {
-    border-left: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .run-screen-stat-value {
-    font-size: 24px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 1px;
-  }
-
-  .run-screen-stat-label {
-    font-size: 8px;
-    color: #444;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-top: 6px;
-  }
-
-  .run-stop-btn {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.3);
-    background: transparent;
-    color: #fff;
-    font-family: 'Space Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    margin: 0 auto;
-    display: block;
-    transition: border-color 0.2s;
-  }
-
-  .run-stop-btn:hover { border-color: #fff; }
-
-  /* === RESULT SCREEN === */
-  .result-screen {
-    position: absolute;
-    inset: 0;
-    background: #000;
-    display: flex;
-    flex-direction: column;
-    z-index: 10;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-    overflow-y: auto;
-  }
-
-  .result-screen.active {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .result-map {
-    width: 100%;
-    height: 200px;
-    background: #111;
-    position: relative;
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-
-  .result-map-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 30px 30px;
-  }
-
-  .result-map-route {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .result-map-route svg {
-    width: 80%;
-    height: 80%;
-    opacity: 0.6;
-  }
-
-  .result-content {
-    padding: 24px;
-    flex: 1;
-  }
-
-  .result-label {
-    font-size: 9px;
-    color: #444;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-
-  .result-dist {
-    font-size: 56px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: -1px;
-    line-height: 1;
-  }
-
-  .result-dist-unit {
-    font-size: 12px;
-    color: #555;
-    letter-spacing: 3px;
-    margin-top: 4px;
-  }
-
-  .result-stats {
-    display: flex;
-    gap: 0;
-    margin-top: 24px;
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .result-stat {
-    flex: 1;
-    padding: 16px 8px;
-    text-align: center;
-  }
-
-  .result-stat + .result-stat { border-left: 1px solid rgba(255,255,255,0.1); }
-
-  .result-stat-value {
-    font-size: 16px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 1px;
-  }
-
-  .result-stat-label {
-    font-size: 8px;
-    color: #555;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
-
-  .result-pt-card {
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 16px;
-    margin-top: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .result-pt-label {
-    font-size: 9px;
-    color: #555;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  .result-pt-value {
-    font-size: 20px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 1px;
-  }
-
-  .result-btns {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 20px;
-  }
-
-  .result-btn {
-    width: 100%;
-    padding: 14px;
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    cursor: pointer;
-    border: 1px solid rgba(255,255,255,0.3);
-    background: transparent;
-    color: #fff;
-    transition: background 0.2s;
-  }
-
-  .result-btn.primary {
-    background: #fff;
-    color: #000;
-    border-color: #fff;
-  }
-
-  .result-btn:hover { opacity: 0.8; }
-
-  /* Tab bar */
+  /* ── Tab Bar ── */
   .tab-bar {
     width: 100%;
     display: flex;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding: 16px 0 34px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 12px 0 28px;
+    background: #000;
   }
 
   .tab-item {
-    flex: 1;
-    text-align: center;
-    font-size: 9px;
-    color: #444;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    padding: 4px 0;
+    flex: 1; text-align: center;
+    font-size: 8px; color: #444;
+    letter-spacing: 1px; text-transform: uppercase;
+    cursor: pointer; padding: 4px 0;
     transition: color 0.2s;
-    background: none;
-    border: none;
+    background: none; border: none;
     font-family: 'Space Mono', monospace;
   }
 
   .tab-item:hover { color: #888; }
   .tab-item.active { color: #fff; }
 
-  /* Nav buttons */
-  .nav-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 20px;
+  /* ══ HOME ══ */
+  .home-hero {
+    width: 100%; height: 260px;
+    background: #0d0d0d;
+    position: relative; overflow: hidden;
   }
 
-  .nav-btn {
-    width: 44px;
-    height: 44px;
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.2);
+  .home-hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #111 0%, #1a1a1a 50%, #0a0a0a 100%);
+  }
+
+  .home-hero-content {
+    position: absolute;
+    bottom: 24px; left: 20px; right: 20px;
+  }
+
+  .home-hero-season { font-size: 8px; color: #555; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 8px; }
+  .home-hero-title { font-size: 32px; font-weight: 700; color: #fff; letter-spacing: 2px; line-height: 1.1; }
+  .home-hero-sub { font-size: 9px; color: #555; letter-spacing: 2px; margin-top: 8px; }
+
+  .home-section { padding: 20px 20px 0; }
+
+  .home-section-label { font-size: 8px; color: #444; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; }
+
+  .home-event-card {
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 16px; margin-bottom: 8px;
+    display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer; transition: border-color 0.2s;
+  }
+
+  .home-event-card:hover { border-color: rgba(255,255,255,0.3); }
+  .home-event-name { font-size: 11px; font-weight: 700; color: #fff; letter-spacing: 1px; text-transform: uppercase; }
+  .home-event-meta { font-size: 8px; color: #555; letter-spacing: 1px; margin-top: 4px; }
+  .home-event-right { text-align: right; }
+  .home-event-dday { font-size: 13px; font-weight: 700; color: #fff; }
+  .home-event-tag { font-size: 8px; color: #555; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; border: 1px solid rgba(255,255,255,0.15); padding: 2px 6px; display: inline-block; }
+  .home-event-tag.open { color: #fff; border-color: rgba(255,255,255,0.4); }
+
+  .home-summary-row { display: flex; }
+  .home-summary-card { flex: 1; border: 1px solid rgba(255,255,255,0.1); padding: 16px 12px; text-align: center; }
+  .home-summary-card + .home-summary-card { border-left: none; }
+  .home-summary-value { font-size: 20px; font-weight: 700; color: #fff; }
+  .home-summary-label { font-size: 8px; color: #555; letter-spacing: 2px; text-transform: uppercase; margin-top: 6px; }
+
+  /* ══ ACTIVITY ══ */
+  .act-section { padding: 20px 20px 0; }
+  .act-section-label { font-size: 8px; color: #444; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; }
+
+  .run-btn-wrap { display: flex; justify-content: center; padding: 32px 0 24px; }
+
+  .run-btn {
+    width: 120px; height: 120px;
     border-radius: 50%;
-    color: rgba(255,255,255,0.4);
-    font-size: 16px;
-    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: transparent; color: #fff;
     font-family: 'Space Mono', monospace;
-    transition: border-color 0.2s, color 0.2s;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  }
+
+  .run-btn:hover { border-color: #fff; background: rgba(255,255,255,0.05); }
+  .run-btn-icon { font-size: 28px; }
+
+  .challenge-card { border: 1px solid rgba(255,255,255,0.1); padding: 16px; }
+  .challenge-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .challenge-title { font-size: 11px; font-weight: 700; color: #fff; letter-spacing: 1px; text-transform: uppercase; }
+  .challenge-pt { font-size: 9px; color: #666; letter-spacing: 1px; }
+  .challenge-bar-bg { width: 100%; height: 2px; background: rgba(255,255,255,0.1); }
+  .challenge-bar-fill { height: 2px; background: #fff; }
+  .challenge-desc { display: flex; justify-content: space-between; margin-top: 8px; }
+  .challenge-km { font-size: 8px; color: #555; letter-spacing: 1px; }
+
+  .week-bars { display: flex; align-items: flex-end; gap: 6px; height: 60px; margin-top: 4px; }
+  .week-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; justify-content: flex-end; }
+  .week-bar { width: 100%; background: rgba(255,255,255,0.15); border-radius: 1px; }
+  .week-bar.today { background: #fff; }
+  .week-day { font-size: 8px; color: #444; letter-spacing: 1px; text-transform: uppercase; }
+  .week-day.today { color: #fff; }
+
+  .history-item { border: 1px solid rgba(255,255,255,0.1); padding: 14px 16px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+  .history-date { font-size: 9px; color: #555; letter-spacing: 1px; margin-bottom: 4px; }
+  .history-km { font-size: 16px; font-weight: 700; color: #fff; }
+  .history-right { text-align: right; }
+  .history-pace { font-size: 11px; color: #888; letter-spacing: 1px; }
+  .history-pt { font-size: 9px; color: #555; letter-spacing: 1px; margin-top: 4px; }
+
+  /* ══ RUNNING SCREEN (MAP) ══ */
+  .run-screen {
+    position: absolute; inset: 0;
+    background: #000;
+    z-index: 10;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .run-screen.active { opacity: 1; pointer-events: all; }
+
+  .run-map-area {
+    position: absolute; inset: 0;
+    background: #0a0a0a;
+    overflow: hidden;
+  }
+
+  .run-map-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .run-map-roads { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .run-map-route-svg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+
+  .run-runner-dot {
+    position: absolute;
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    z-index: 2;
+  }
+
+  .run-runner-circle {
+    width: 8px; height: 8px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    animation: runnerPulse 3s ease-in-out infinite;
+  }
+
+  .run-runner-label {
+    font-size: 7px; color: rgba(255,255,255,0.4);
+    letter-spacing: 1px; white-space: nowrap;
+    background: rgba(0,0,0,0.6); padding: 2px 5px;
+  }
+
+  @keyframes runnerPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.9; }
+  }
+
+  .run-my-loc {
+    position: absolute;
+    top: 48%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+  }
+
+  .run-my-dot {
+    width: 12px; height: 12px;
+    background: #fff; border-radius: 50%;
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .run-my-pulse {
+    width: 32px; height: 32px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 50%;
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: myPulse 2s ease-out infinite;
+  }
+
+  @keyframes myPulse {
+    0% { transform: translate(-50%,-50%) scale(0.5); opacity: 1; }
+    100% { transform: translate(-50%,-50%) scale(2.5); opacity: 0; }
+  }
+
+  .run-map-top {
+    position: absolute; top: 0; left: 0; right: 0;
+    padding: 52px 20px 20px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, transparent 100%);
+    z-index: 4;
+    display: flex; justify-content: space-between; align-items: flex-start;
+  }
+
+  .run-map-label { font-size: 9px; color: rgba(255,255,255,0.5); letter-spacing: 4px; text-transform: uppercase; }
+  .run-map-count { text-align: right; }
+  .run-map-count-num { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: 1px; }
+  .run-map-count-label { font-size: 8px; color: rgba(255,255,255,0.4); letter-spacing: 2px; margin-top: 2px; }
+
+  .run-panel {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.97) 70%, transparent 100%);
+    padding: 40px 24px 48px;
+    z-index: 4;
+  }
+
+  .run-panel-stats {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 24px;
+  }
+
+  .run-panel-stat { flex: 1; text-align: center; }
+
+  .run-panel-value {
+    font-size: 48px; font-weight: 700; color: #fff;
+    letter-spacing: -2px; line-height: 1;
+  }
+
+  .run-panel-value.sm { font-size: 22px; letter-spacing: 0; }
+
+  .run-panel-label {
+    font-size: 8px; color: #444;
+    letter-spacing: 2px; text-transform: uppercase; margin-top: 5px;
+  }
+
+  .run-panel-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.08); align-self: center; }
+
+  .run-stop-btn {
+    width: 64px; height: 64px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: transparent; color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; display: block; margin: 0 auto;
+    transition: border-color 0.2s;
+  }
+
+  .run-stop-btn:hover { border-color: #fff; }
+
+  /* ══ RESULT SCREEN ══ */
+  .result-screen {
+    position: absolute; inset: 0;
+    background: #000;
+    display: flex; flex-direction: column;
+    z-index: 10;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.4s ease;
+    overflow-y: auto;
+  }
+
+  .result-screen.active { opacity: 1; pointer-events: all; }
+
+  .result-map { width: 100%; height: 200px; background: #0a0a0a; position: relative; overflow: hidden; flex-shrink: 0; }
+  .result-map-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+  .result-map-route { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+
+  .result-content { padding: 24px; flex: 1; }
+  .result-label { font-size: 8px; color: #444; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 16px; }
+  .result-dist { font-size: 56px; font-weight: 700; color: #fff; letter-spacing: -1px; line-height: 1; }
+  .result-dist-unit { font-size: 11px; color: #444; letter-spacing: 3px; margin-top: 4px; }
+
+  .result-stats { display: flex; margin-top: 20px; border: 1px solid rgba(255,255,255,0.1); }
+  .result-stat { flex: 1; padding: 14px 8px; text-align: center; }
+  .result-stat + .result-stat { border-left: 1px solid rgba(255,255,255,0.1); }
+  .result-stat-value { font-size: 16px; font-weight: 700; color: #fff; }
+  .result-stat-label { font-size: 8px; color: #555; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+
+  .result-pt-card { border: 1px solid rgba(255,255,255,0.1); padding: 16px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; }
+  .result-pt-label { font-size: 8px; color: #555; letter-spacing: 2px; text-transform: uppercase; }
+  .result-pt-value { font-size: 20px; font-weight: 700; color: #fff; }
+
+  .result-btns { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+  .result-btn { width: 100%; padding: 14px; font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; border: 1px solid rgba(255,255,255,0.3); background: transparent; color: #fff; transition: opacity 0.2s; }
+  .result-btn.primary { background: #fff; color: #000; border-color: #fff; }
+  .result-btn:hover { opacity: 0.8; }
+
+  /* ══ ARCHIVE ══ */
+  .archive-hero {
+    padding: 32px 20px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .archive-hero-label {
+    font-size: 8px;
+    color: #444;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .archive-hero-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+  }
+
+  .archive-hero-desc {
+    font-size: 9px;
+    color: #444;
+    letter-spacing: 3px;
+    margin-top: 6px;
+  }
+
+  .archive-list { padding: 0 20px 20px; }
+
+  .archive-season-item {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .archive-season-header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .archive-season-header:hover { opacity: 0.7; }
+
+  .archive-season-name {
+    font-size: 9px;
+    color: #444;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .archive-season-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .archive-season-toggle {
+    font-size: 20px;
+    color: #444;
+    transition: transform 0.3s ease, color 0.2s;
+  }
+
+  .archive-season-item.open .archive-season-toggle {
+    transform: rotate(45deg);
+    color: #fff;
+  }
+
+  .archive-season-body {
+    padding-bottom: 20px;
+  }
+
+  .archive-season-quote {
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+
+  .archive-film-card {
+    margin-bottom: 12px;
+    cursor: pointer;
+  }
+
+  .archive-film-thumb {
+    width: 100%;
+    height: 140px;
+    background: #0a0a0a;
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 8px;
+    transition: border-color 0.2s;
   }
 
-  .nav-btn:hover {
-    border-color: rgba(255,255,255,0.5);
-    color: rgba(255,255,255,0.8);
+  .archive-film-card:hover .archive-film-thumb { border-color: rgba(255,255,255,0.3); }
+
+  .archive-film-thumb-text {
+    font-size: 24px;
+    color: rgba(255,255,255,0.3);
   }
+
+  .archive-film-label {
+    font-size: 8px;
+    color: #444;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .archive-lookbook-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+
+  .archive-look-thumb {
+    height: 90px;
+    background: #0a0a0a;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* ══ GEAR (old - keep for filter JS) ══ */
+  .gear-section { padding: 20px 20px 0; }
+
+  .gear-filter { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin-bottom: 16px; }
+  .gear-filter::-webkit-scrollbar { display: none; }
+
+  .gear-filter-btn {
+    flex-shrink: 0; padding: 5px 14px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: transparent; color: #444;
+    font-family: 'Space Mono', monospace;
+    font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; transition: all 0.2s;
+  }
+
+  .gear-filter-btn.active { border-color: #fff; color: #fff; }
+
+  .gear-card { border: 1px solid rgba(255,255,255,0.1); margin-bottom: 8px; cursor: pointer; transition: border-color 0.2s; }
+  .gear-card:hover { border-color: rgba(255,255,255,0.3); }
+
+  .gear-card-thumb { width: 100%; height: 160px; background: #0a0a0a; display: flex; align-items: center; justify-content: center; position: relative; }
+  .gear-card-thumb-text { font-size: 28px; font-weight: 700; color: rgba(255,255,255,0.05); letter-spacing: 4px; }
+  .gear-card-type { position: absolute; top: 12px; left: 12px; font-size: 7px; color: #555; letter-spacing: 3px; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.1); padding: 3px 8px; }
+
+  .gear-card-body { padding: 14px 16px; }
+  .gear-card-season { font-size: 8px; color: #555; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+  .gear-card-title { font-size: 12px; font-weight: 700; color: #fff; letter-spacing: 1px; text-transform: uppercase; }
+  .gear-card-desc { font-size: 8px; color: #555; letter-spacing: 1px; margin-top: 6px; line-height: 1.6; }
+
+  /* ══ NODE 세그먼트 ══ */
+  .node-switcher {
+    display: flex;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 0 20px;
+    margin-top: 4px;
+  }
+
+  .node-seg-btn {
+    flex: 1; padding: 14px 0;
+    background: none; border: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 8px; color: #444;
+    letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; transition: color 0.2s;
+    border-bottom: 1px solid transparent;
+    margin-bottom: -1px;
+  }
+
+  .node-seg-btn.active { color: #fff; border-bottom-color: #fff; }
+  .node-seg-btn:hover { color: #888; }
+
+  .node-seg-content { display: none; }
+  .node-seg-content.active { display: block; }
+
+  /* CREW */
+  .crew-card {
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 16px; margin-bottom: 8px;
+  }
+
+  .crew-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+  .crew-name { font-size: 12px; font-weight: 700; color: #fff; letter-spacing: 1px; text-transform: uppercase; }
+  .crew-meta { font-size: 8px; color: #555; letter-spacing: 1px; margin-top: 4px; }
+  .crew-badge { font-size: 8px; color: #fff; letter-spacing: 2px; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.3); padding: 3px 8px; flex-shrink: 0; }
+  .crew-next-run { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 12px; }
+  .crew-next-label { font-size: 8px; color: #444; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+  .crew-next-info { font-size: 9px; color: #888; letter-spacing: 1px; }
+
+  .crew-member-list { display: flex; flex-direction: column; }
+  .crew-member { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .crew-member-avatar { width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: #fff; flex-shrink: 0; }
+  .crew-member-info { flex: 1; }
+  .crew-member-name { font-size: 10px; font-weight: 700; color: #fff; letter-spacing: 1px; }
+  .crew-member-km { font-size: 8px; color: #555; letter-spacing: 1px; margin-top: 2px; }
+  .crew-member-grade { font-size: 8px; color: #555; letter-spacing: 2px; text-transform: uppercase; }
+
+  /* LIVE RUN */
+  .liverun-map {
+    width: 100%; height: 220px;
+    background: #0a0a0a;
+    position: relative; overflow: hidden;
+  }
+
+  .liverun-map-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .liverun-map-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+  .liverun-dot { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 3px; z-index: 2; }
+  .liverun-dot-circle { width: 7px; height: 7px; background: rgba(255,255,255,0.5); border-radius: 50%; animation: runnerPulse 3s ease-in-out infinite; }
+  .liverun-dot-label { font-size: 7px; color: rgba(255,255,255,0.4); letter-spacing: 1px; white-space: nowrap; background: rgba(0,0,0,0.7); padding: 2px 5px; }
+
+  .liverun-total { position: absolute; top: 12px; right: 12px; text-align: right; }
+  .liverun-total-num { font-size: 24px; font-weight: 700; color: #fff; letter-spacing: 1px; }
+  .liverun-total-label { font-size: 7px; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase; }
+
+  .liverun-session { border: 1px solid rgba(255,255,255,0.1); padding: 14px 16px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+  .liverun-session-name { font-size: 11px; font-weight: 700; color: #fff; letter-spacing: 1px; text-transform: uppercase; }
+  .liverun-session-meta { font-size: 8px; color: #555; letter-spacing: 1px; margin-top: 4px; }
+  .liverun-session-btn { padding: 6px 14px; border: 1px solid rgba(255,255,255,0.3); background: transparent; color: #fff; font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; flex-shrink: 0; transition: all 0.2s; }
+  .liverun-session-btn:hover { background: #fff; color: #000; }
+
+  .liverun-create-btn { width: 100%; padding: 14px; border: 1px solid rgba(255,255,255,0.15); background: transparent; color: #555; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; margin-top: 4px; transition: all 0.2s; }
+  .liverun-create-btn:hover { border-color: #fff; color: #fff; }
+
+  .crew-banner {
+    width: 100%; height: 100px;
+    background: #111;
+    position: relative; overflow: hidden;
+    display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-bottom: 4px;
+  }
+
+  .crew-banner-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+  }
+
+  .crew-banner-content { position: relative; z-index: 1; }
+  .crew-banner-sub { font-size: 8px; color: #555; letter-spacing: 2px; margin-bottom: 4px; }
+  .crew-banner-title { font-size: 20px; font-weight: 700; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
+
+  .crew-banner-btn {
+    position: relative; z-index: 1;
+    padding: 8px 16px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: transparent; color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; flex-shrink: 0;
+    transition: all 0.2s;
+  }
+
+  .crew-banner-btn:hover { background: #fff; color: #000; }
+
+  .crew-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .crew-grid-item { cursor: pointer; }
+  .crew-grid-item:hover .crew-grid-thumb { border-color: rgba(255,255,255,0.3); }
+
+  .crew-grid-thumb {
+    width: 100%; height: 90px;
+    background: #0a0a0a;
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 8px;
+    transition: border-color 0.2s;
+  }
+
+  .crew-grid-thumb-text { font-size: 18px; font-weight: 700; color: rgba(255,255,255,0.12); letter-spacing: 2px; }
+  .crew-grid-name { font-size: 10px; font-weight: 700; color: #fff; letter-spacing: 1px; margin-bottom: 3px; }
+  .crew-grid-meta { font-size: 8px; color: #555; letter-spacing: 1px; }
+
+  .crew-more-btn {
+    width: 100%; padding: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: transparent; color: #555;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; transition: all 0.2s;
+  }
+
+  .crew-more-btn:hover { border-color: #fff; color: #fff; }
+
+  /* ══ NODE (기존) ══ */
+  .node-section { padding: 20px 20px 0; }
+  .node-section-label { font-size: 8px; color: #444; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; }
+
+  .node-event-card { border: 1px solid rgba(255,255,255,0.1); margin-bottom: 8px; cursor: pointer; transition: border-color 0.2s; }
+  .node-event-card:hover { border-color: rgba(255,255,255,0.3); }
+
+  .node-event-thumb { width: 100%; height: 110px; background: #0a0a0a; display: flex; align-items: center; justify-content: center; position: relative; }
+  .node-event-thumb-text { font-size: 22px; font-weight: 700; color: rgba(255,255,255,0.05); letter-spacing: 3px; }
+  .node-event-dday { position: absolute; top: 12px; right: 12px; font-size: 11px; font-weight: 700; color: #fff; }
+
+  .node-event-body { padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; }
+  .node-event-name { font-size: 11px; font-weight: 700; color: #fff; letter-spacing: 1px; text-transform: uppercase; }
+  .node-event-meta { font-size: 8px; color: #555; letter-spacing: 1px; margin-top: 4px; }
+
+  .node-event-btn { padding: 6px 14px; border: 1px solid rgba(255,255,255,0.3); background: transparent; color: #fff; font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; flex-shrink: 0; transition: all 0.2s; }
+  .node-event-btn:hover { background: #fff; color: #000; }
+  .node-event-btn.booked { background: rgba(255,255,255,0.05); color: #555; border-color: rgba(255,255,255,0.1); }
+
+  /* ══ SONIC ══ */
+  .sonic-section { padding: 20px 20px 0; }
+
+  .sonic-now { border: 1px solid rgba(255,255,255,0.1); padding: 20px; margin-bottom: 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .sonic-now-label { font-size: 8px; color: #444; letter-spacing: 3px; text-transform: uppercase; align-self: flex-start; }
+
+  .sonic-disc {
+    width: 80px; height: 80px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    background: #0a0a0a;
+    animation: spin 8s linear infinite;
+    animation-play-state: paused;
+  }
+
+  .sonic-disc.playing { animation-play-state: running; }
+  .sonic-disc-inner { width: 16px; height: 16px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); }
+
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  .sonic-track-title { font-size: 12px; font-weight: 700; color: #fff; letter-spacing: 1px; text-align: center; }
+  .sonic-track-artist { font-size: 9px; color: #555; letter-spacing: 1px; margin-top: 4px; text-align: center; }
+
+  .sonic-controls { display: flex; gap: 20px; align-items: center; }
+  .sonic-ctrl-btn { background: transparent; border: none; color: #555; font-size: 18px; cursor: pointer; transition: color 0.2s; }
+  .sonic-ctrl-btn:hover { color: #fff; }
+
+  .sonic-play-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); background: transparent; color: #fff; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.2s; }
+  .sonic-play-btn:hover { border-color: #fff; }
+
+  .sonic-section-label { font-size: 8px; color: #444; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; }
+
+  .sonic-playlist-item { display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06); cursor: pointer; }
+  .sonic-pl-num { font-size: 9px; color: #333; width: 20px; flex-shrink: 0; }
+  .sonic-pl-info { flex: 1; margin-left: 12px; }
+  .sonic-pl-title { font-size: 10px; font-weight: 700; color: #777; letter-spacing: 1px; transition: color 0.2s; }
+  .sonic-playlist-item:hover .sonic-pl-title { color: #fff; }
+  .sonic-pl-artist { font-size: 8px; color: #444; letter-spacing: 1px; margin-top: 2px; }
+  .sonic-pl-duration { font-size: 9px; color: #444; }
+
+  /* ══ MYPAGE ══ */
+  .mypage-screen {
+    position: absolute; inset: 0;
+    background: #000;
+    z-index: 20;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease;
+    overflow-y: auto;
+  }
+
+  .mypage-screen.active { opacity: 1; pointer-events: all; }
+
+  .mypage-header { display: flex; align-items: center; justify-content: space-between; padding: 52px 20px 16px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .mypage-title { font-size: 10px; font-weight: 700; color: #fff; letter-spacing: 3px; text-transform: uppercase; }
+  .mypage-close { background: transparent; border: none; color: #555; font-size: 16px; cursor: pointer; }
+
+  .mypage-body { padding: 20px; }
+
+  .mypage-profile-row { display: flex; align-items: center; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 20px; }
+  .mypage-avatar { width: 52px; height: 52px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #fff; flex-shrink: 0; }
+  .mypage-name { font-size: 14px; font-weight: 700; color: #fff; }
+  .mypage-grade { font-size: 8px; color: #555; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+
+  .mypage-qr-card { border: 1px solid rgba(255,255,255,0.1); padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .mypage-qr-label { font-size: 8px; color: #444; letter-spacing: 3px; text-transform: uppercase; }
+
+  .mypage-qr { width: 100px; height: 100px; background: #fff; padding: 8px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+  .mypage-qr-cell { background: #000; }
+  .mypage-qr-cell.w { background: #fff; }
+
+  .mypage-member-id { font-size: 9px; color: #444; letter-spacing: 2px; }
+
+  .mypage-grade-card { border: 1px solid rgba(255,255,255,0.1); padding: 16px; margin-bottom: 16px; }
+  .mypage-grade-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .mypage-grade-current { font-size: 12px; font-weight: 700; color: #fff; letter-spacing: 2px; }
+  .mypage-grade-next { font-size: 8px; color: #555; letter-spacing: 1px; }
+  .mypage-grade-bar-bg { width: 100%; height: 2px; background: rgba(255,255,255,0.1); }
+  .mypage-grade-bar-fill { height: 2px; background: #fff; }
+  .mypage-grade-desc { font-size: 8px; color: #555; letter-spacing: 1px; margin-top: 8px; }
+
+  .mypage-menu-item { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06); cursor: pointer; }
+  .mypage-menu-label { font-size: 9px; color: #777; letter-spacing: 2px; text-transform: uppercase; }
+  .mypage-menu-arrow { font-size: 12px; color: #333; }
+
+  /* Nav */
+  .nav-buttons { display: flex; justify-content: center; gap: 12px; margin-top: 20px; }
+  .nav-btn { width: 44px; height: 44px; background: transparent; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; color: rgba(255,255,255,0.4); font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+  .nav-btn:hover { border-color: rgba(255,255,255,0.5); color: rgba(255,255,255,0.8); }
 </style>
 </head>
 <body>
@@ -791,220 +822,107 @@
 
     <!-- Main -->
     <div class="screen screen-main hidden" id="main">
-      <div class="tab-content">
 
-        <!-- STATUS -->
-        <div class="tab-page active" id="page-STATUS">
+      <!-- App Header -->
+      <div class="app-header">
+        <div class="app-header-logo">TOJI</div>
+        <button class="app-header-profile" onclick="openMypage()">LW</button>
+      </div>
 
-          <div class="user-info">
+      <!-- Mypage -->
+      <div class="mypage-screen" id="mypageScreen">
+        <div class="mypage-header">
+          <div class="mypage-title">My Page</div>
+          <button class="mypage-close" onclick="closeMypage()">✕</button>
+        </div>
+        <div class="mypage-body">
+          <div class="mypage-profile-row">
+            <div class="mypage-avatar">LW</div>
             <div>
-              <div class="user-name">Lee Wonsuk</div>
-              <div class="user-grade">Member since 2024</div>
-            </div>
-            <div class="membership-badge">PACER</div>
-          </div>
-
-          <div class="stat-row">
-            <div class="stat-card">
-              <div class="stat-label">Distance</div>
-              <div class="stat-value">780</div>
-              <div class="stat-unit">KM</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-label">Points</div>
-              <div class="stat-value">1,250</div>
-              <div class="stat-unit">PT</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-label">Events</div>
-              <div class="stat-value">5</div>
-              <div class="stat-unit">JOINED</div>
+              <div class="mypage-name">Lee Wonsuk</div>
+              <div class="mypage-grade">PACER · Member since 2024</div>
             </div>
           </div>
-
-          <div class="section">
-            <div class="section-label">This Month</div>
-            <div class="month-grid">
-              <div class="month-item">
-                <div class="month-value">42</div>
-                <div class="month-desc">KM Run</div>
-              </div>
-              <div class="month-item">
-                <div class="month-value">2</div>
-                <div class="month-desc">Events</div>
-              </div>
-              <div class="month-item">
-                <div class="month-value">180</div>
-                <div class="month-desc">Points</div>
-              </div>
+          <div class="mypage-qr-card">
+            <div class="mypage-qr-label">Membership QR</div>
+            <div class="mypage-qr">
+              <div class="mypage-qr-cell"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell w"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell"></div>
+              <div class="mypage-qr-cell"></div><div class="mypage-qr-cell w"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell w"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell w"></div><div class="mypage-qr-cell"></div>
+              <div class="mypage-qr-cell"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell w"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell w"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell"></div>
+              <div class="mypage-qr-cell w"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell w"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell w"></div>
+              <div class="mypage-qr-cell"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell w"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell w"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell"></div>
+              <div class="mypage-qr-cell"></div><div class="mypage-qr-cell w"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell w"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell w"></div><div class="mypage-qr-cell"></div>
+              <div class="mypage-qr-cell"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell w"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell"></div><div class="mypage-qr-cell"></div>
             </div>
+            <div class="mypage-member-id">SSG-2024-001250</div>
           </div>
-
-          <div class="section">
-            <div class="section-label">Next Event</div>
-            <div class="event-card">
-              <div class="event-info">
-                <div class="event-name">Han River Night Run</div>
-                <div class="event-date">2026.04.12 SAT 19:00</div>
-              </div>
-              <div class="event-right">
-                <div class="event-dday">D-14</div>
-                <div class="event-status">Booked</div>
-              </div>
+          <div class="mypage-grade-card">
+            <div class="mypage-grade-row">
+              <div class="mypage-grade-current">PACER</div>
+              <div class="mypage-grade-next">ELITE까지 220km</div>
             </div>
-            <div class="event-card">
-              <div class="event-info">
-                <div class="event-name">Bukhan Trail Race</div>
-                <div class="event-date">2026.04.26 SAT 08:00</div>
-              </div>
-              <div class="event-right">
-                <div class="event-dday">D-28</div>
-                <div class="event-status apply">Apply</div>
-              </div>
+            <div class="mypage-grade-bar-bg">
+              <div class="mypage-grade-bar-fill" style="width:78%"></div>
             </div>
+            <div class="mypage-grade-desc">780 / 1000 KM · 5 Events joined</div>
           </div>
-
+          <div class="mypage-menu-item"><div class="mypage-menu-label">Point History</div><div class="mypage-menu-arrow">→</div></div>
+          <div class="mypage-menu-item"><div class="mypage-menu-label">Grade & Benefits</div><div class="mypage-menu-arrow">→</div></div>
+          <div class="mypage-menu-item"><div class="mypage-menu-label">Settings</div><div class="mypage-menu-arrow">→</div></div>
+          <div class="mypage-menu-item"><div class="mypage-menu-label">Log Out</div><div class="mypage-menu-arrow">→</div></div>
         </div>
-
-        <!-- Other tabs (placeholder) -->
-        <div class="tab-page" id="page-ACTIVITY">
-          <div class="run-btn-wrap">
-            <button class="run-btn" id="runBtn" onclick="startRun()">
-              <span class="run-btn-icon" id="runIcon">▶</span>
-              <span id="runLabel">Start</span>
-            </button>
-          </div>
-
-          <div class="run-stats-row">
-            <div class="run-stat">
-              <div class="run-stat-value" id="runDist">0.00</div>
-              <div class="run-stat-label">KM</div>
-            </div>
-            <div class="run-stat">
-              <div class="run-stat-value" id="runPace">--'--"</div>
-              <div class="run-stat-label">Pace</div>
-            </div>
-            <div class="run-stat">
-              <div class="run-stat-value" id="runTime">00:00</div>
-              <div class="run-stat-label">Time</div>
-            </div>
-          </div>
-
-          <div class="section">
-            <div class="section-label">Challenge</div>
-            <div class="challenge-card">
-              <div class="challenge-header">
-                <div class="challenge-title">April 100KM</div>
-                <div class="challenge-pt">+500 PT</div>
-              </div>
-              <div class="challenge-bar-bg">
-                <div class="challenge-bar-fill" style="width: 42%"></div>
-              </div>
-              <div class="challenge-desc">
-                <div class="challenge-km">42 / 100 KM</div>
-                <div class="challenge-km">58 KM left</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="section">
-            <div class="section-label">This Week</div>
-            <div class="week-bars">
-              <div class="week-bar-wrap">
-                <div class="week-bar" style="height: 30%"></div>
-                <div class="week-day">Mon</div>
-              </div>
-              <div class="week-bar-wrap">
-                <div class="week-bar" style="height: 60%"></div>
-                <div class="week-day">Tue</div>
-              </div>
-              <div class="week-bar-wrap">
-                <div class="week-bar" style="height: 0%"></div>
-                <div class="week-day">Wed</div>
-              </div>
-              <div class="week-bar-wrap">
-                <div class="week-bar" style="height: 45%"></div>
-                <div class="week-day">Thu</div>
-              </div>
-              <div class="week-bar-wrap">
-                <div class="week-bar" style="height: 80%"></div>
-                <div class="week-day">Fri</div>
-              </div>
-              <div class="week-bar-wrap">
-                <div class="week-bar today" style="height: 20%"></div>
-                <div class="week-day today">Sat</div>
-              </div>
-              <div class="week-bar-wrap">
-                <div class="week-bar" style="height: 0%"></div>
-                <div class="week-day">Sun</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="section">
-            <div class="section-label">Recent Runs</div>
-            <div class="history-item">
-              <div class="history-left">
-                <div class="history-date">2026.03.29 SAT</div>
-                <div class="history-km">5.20 KM</div>
-              </div>
-              <div class="history-right">
-                <div class="history-pace">5'42" /km</div>
-                <div class="history-pt">+ 26 PT</div>
-              </div>
-            </div>
-            <div class="history-item">
-              <div class="history-left">
-                <div class="history-date">2026.03.27 Thu</div>
-                <div class="history-km">8.80 KM</div>
-              </div>
-              <div class="history-right">
-                <div class="history-pace">5'18" /km</div>
-                <div class="history-pt">+ 44 PT</div>
-              </div>
-            </div>
-            <div class="history-item">
-              <div class="history-left">
-                <div class="history-date">2026.03.25 Tue</div>
-                <div class="history-km">12.00 KM</div>
-              </div>
-              <div class="history-right">
-                <div class="history-pace">5'55" /km</div>
-                <div class="history-pt">+ 60 PT</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="tab-page" id="page-GEAR">
-          <div class="tab-placeholder"><div class="tab-placeholder-text">Gear</div></div>
-        </div>
-        <div class="tab-page" id="page-ACCESS">
-          <div class="tab-placeholder"><div class="tab-placeholder-text">Access</div></div>
-        </div>
-        <div class="tab-page" id="page-SONIC">
-          <div class="tab-placeholder"><div class="tab-placeholder-text">Sonic</div></div>
-        </div>
-
       </div>
 
       <!-- Running Screen -->
       <div class="run-screen" id="runScreen">
-        <div class="run-screen-label">Running</div>
-        <div class="run-screen-main">
-          <div class="run-screen-dist" id="rsD">0.00</div>
-          <div class="run-screen-dist-unit">Kilometers</div>
-          <div class="run-screen-stats">
-            <div class="run-screen-stat">
-              <div class="run-screen-stat-value" id="rsP">--'--"</div>
-              <div class="run-screen-stat-label">Pace</div>
-            </div>
-            <div class="run-screen-stat">
-              <div class="run-screen-stat-value" id="rsT">00:00</div>
-              <div class="run-screen-stat-label">Time</div>
-            </div>
+        <div class="run-map-area">
+          <div class="run-map-grid"></div>
+          <svg class="run-map-roads" viewBox="0 0 390 844" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="280" x2="390" y2="280" stroke="rgba(255,255,255,0.06)" stroke-width="8"/>
+            <line x1="0" y1="480" x2="390" y2="480" stroke="rgba(255,255,255,0.06)" stroke-width="12"/>
+            <line x1="100" y1="0" x2="100" y2="844" stroke="rgba(255,255,255,0.05)" stroke-width="6"/>
+            <line x1="220" y1="0" x2="220" y2="844" stroke="rgba(255,255,255,0.07)" stroke-width="10"/>
+            <line x1="320" y1="0" x2="320" y2="844" stroke="rgba(255,255,255,0.04)" stroke-width="5"/>
+            <line x1="0" y1="150" x2="200" y2="480" stroke="rgba(255,255,255,0.04)" stroke-width="6"/>
+          </svg>
+          <svg class="run-map-route-svg" viewBox="0 0 390 844" fill="none">
+            <path id="runRoutePath" d="" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+          </svg>
+          <div class="run-runner-dot" style="top:28%;left:18%"><div class="run-runner-circle"></div><div class="run-runner-label">한강 · 2명</div></div>
+          <div class="run-runner-dot" style="top:18%;left:62%"><div class="run-runner-circle" style="animation-delay:0.5s"></div><div class="run-runner-label">성수 · 1명</div></div>
+          <div class="run-runner-dot" style="top:38%;left:72%"><div class="run-runner-circle" style="animation-delay:1s"></div><div class="run-runner-label">홍대 · 3명</div></div>
+          <div class="run-runner-dot" style="top:22%;left:40%"><div class="run-runner-circle" style="animation-delay:1.5s"></div><div class="run-runner-label">이태원 · 2명</div></div>
+          <div class="run-my-loc">
+            <div class="run-my-pulse"></div>
+            <div class="run-my-dot"></div>
           </div>
         </div>
-        <button class="run-stop-btn" onclick="stopRun()">Stop</button>
+        <div class="run-map-top">
+          <div class="run-map-label">Running</div>
+          <div class="run-map-count">
+            <div class="run-map-count-num" id="runnersNum">8</div>
+            <div class="run-map-count-label">now running</div>
+          </div>
+        </div>
+        <div class="run-panel">
+          <div class="run-panel-stats">
+            <div class="run-panel-stat main">
+              <div class="run-panel-value" id="rsD">0.00</div>
+              <div class="run-panel-label">KM</div>
+            </div>
+            <div class="run-panel-divider"></div>
+            <div class="run-panel-stat">
+              <div class="run-panel-value sm" id="rsP">--'--"</div>
+              <div class="run-panel-label">Pace</div>
+            </div>
+            <div class="run-panel-divider"></div>
+            <div class="run-panel-stat">
+              <div class="run-panel-value sm" id="rsT">00:00</div>
+              <div class="run-panel-label">Time</div>
+            </div>
+          </div>
+          <button class="run-stop-btn" onclick="stopRun()">Stop</button>
+        </div>
       </div>
 
       <!-- Result Screen -->
@@ -1024,14 +942,8 @@
           <div class="result-dist" id="resDist">0.00</div>
           <div class="result-dist-unit">KM</div>
           <div class="result-stats">
-            <div class="result-stat">
-              <div class="result-stat-value" id="resPace">--'--"</div>
-              <div class="result-stat-label">Avg Pace</div>
-            </div>
-            <div class="result-stat">
-              <div class="result-stat-value" id="resTime">00:00</div>
-              <div class="result-stat-label">Time</div>
-            </div>
+            <div class="result-stat"><div class="result-stat-value" id="resPace">--'--"</div><div class="result-stat-label">Avg Pace</div></div>
+            <div class="result-stat"><div class="result-stat-value" id="resTime">00:00</div><div class="result-stat-label">Time</div></div>
           </div>
           <div class="result-pt-card">
             <div class="result-pt-label">Points Earned</div>
@@ -1044,20 +956,447 @@
         </div>
       </div>
 
+      <!-- Tab Content -->
+      <div class="tab-content">
+
+        <!-- HOME -->
+        <div class="tab-page active" id="page-HOME">
+          <div class="home-hero">
+            <div class="home-hero-bg"></div>
+            <div class="home-hero-content">
+              <div class="home-hero-season">26SS — INTRA</div>
+              <div class="home-hero-title">MOVE<br>DIFFERENT</div>
+              <div class="home-hero-sub">New collection dropping soon</div>
+            </div>
+          </div>
+
+          <div class="home-section">
+            <div class="home-section-label">Upcoming Events</div>
+            <div class="home-event-card">
+              <div><div class="home-event-name">Han River Night Run</div><div class="home-event-meta">2026.04.12 SAT 19:00 · 한강공원</div></div>
+              <div class="home-event-right"><div class="home-event-dday">D-14</div><div class="home-event-tag">Booked</div></div>
+            </div>
+            <div class="home-event-card">
+              <div><div class="home-event-name">Bukhan Trail Race</div><div class="home-event-meta">2026.04.26 SAT 08:00 · 북한산</div></div>
+              <div class="home-event-right"><div class="home-event-dday">D-28</div><div class="home-event-tag open">Open</div></div>
+            </div>
+            <div class="home-event-card">
+              <div><div class="home-event-name">TOJI Run Club #12</div><div class="home-event-meta">2026.05.03 SAT 07:00 · 올림픽공원</div></div>
+              <div class="home-event-right"><div class="home-event-dday">D-35</div><div class="home-event-tag open">Open</div></div>
+            </div>
+          </div>
+
+          <div class="home-section" style="margin-top:20px; padding-bottom:0;">
+            <div class="home-section-label">My Status</div>
+            <div class="home-summary-row">
+              <div class="home-summary-card"><div class="home-summary-value">780</div><div class="home-summary-label">KM Total</div></div>
+              <div class="home-summary-card"><div class="home-summary-value">1,250</div><div class="home-summary-label">Points</div></div>
+              <div class="home-summary-card"><div class="home-summary-value">5</div><div class="home-summary-label">Events</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTIVITY -->
+        <div class="tab-page" id="page-ACTIVITY">
+          <div class="run-btn-wrap">
+            <button class="run-btn" onclick="startRun()">
+              <span class="run-btn-icon">▶</span>
+              <span>Start</span>
+            </button>
+          </div>
+          <div class="act-section">
+            <div class="act-section-label">Challenge</div>
+            <div class="challenge-card">
+              <div class="challenge-header"><div class="challenge-title">April 100KM</div><div class="challenge-pt">+500 PT</div></div>
+              <div class="challenge-bar-bg"><div class="challenge-bar-fill" style="width:42%"></div></div>
+              <div class="challenge-desc"><div class="challenge-km">42 / 100 KM</div><div class="challenge-km">58 KM left</div></div>
+            </div>
+          </div>
+          <div class="act-section" style="margin-top:20px;">
+            <div class="act-section-label">This Week</div>
+            <div class="week-bars">
+              <div class="week-bar-wrap"><div class="week-bar" style="height:30%"></div><div class="week-day">Mon</div></div>
+              <div class="week-bar-wrap"><div class="week-bar" style="height:60%"></div><div class="week-day">Tue</div></div>
+              <div class="week-bar-wrap"><div class="week-bar" style="height:0%"></div><div class="week-day">Wed</div></div>
+              <div class="week-bar-wrap"><div class="week-bar" style="height:45%"></div><div class="week-day">Thu</div></div>
+              <div class="week-bar-wrap"><div class="week-bar" style="height:80%"></div><div class="week-day">Fri</div></div>
+              <div class="week-bar-wrap"><div class="week-bar today" style="height:20%"></div><div class="week-day today">Sat</div></div>
+              <div class="week-bar-wrap"><div class="week-bar" style="height:0%"></div><div class="week-day">Sun</div></div>
+            </div>
+          </div>
+          <div class="act-section" style="margin-top:20px;">
+            <div class="act-section-label">Recent Runs</div>
+            <div class="history-item"><div><div class="history-date">2026.03.29 SAT</div><div class="history-km">5.20 KM</div></div><div class="history-right"><div class="history-pace">5'42" /km</div><div class="history-pt">+ 26 PT</div></div></div>
+            <div class="history-item"><div><div class="history-date">2026.03.27 Thu</div><div class="history-km">8.80 KM</div></div><div class="history-right"><div class="history-pace">5'18" /km</div><div class="history-pt">+ 44 PT</div></div></div>
+            <div class="history-item"><div><div class="history-date">2026.03.25 Tue</div><div class="history-km">12.00 KM</div></div><div class="history-right"><div class="history-pace">5'55" /km</div><div class="history-pt">+ 60 PT</div></div></div>
+          </div>
+        </div>
+
+        <!-- ARCHIVE -->
+        <div class="tab-page" id="page-GEAR">
+
+          <!-- Hero -->
+          <div class="archive-hero">
+            <div class="archive-hero-label">SAN SAN GEAR</div>
+            <div class="archive-hero-title">Archive</div>
+            <div class="archive-hero-desc">2022 — 2026</div>
+          </div>
+
+          <!-- Season list -->
+          <div class="archive-list">
+
+            <div class="archive-season-item active-season" id="season-26SS">
+              <div class="archive-season-header" onclick="toggleSeason('26SS')">
+                <div class="archive-season-left">
+                  <div class="archive-season-name">26SS</div>
+                  <div class="archive-season-title">INTRA</div>
+                </div>
+                <div class="archive-season-toggle">+</div>
+              </div>
+              <div class="archive-season-body" id="body-26SS">
+                <div class="archive-season-quote">"내부로 향하는 움직임"</div>
+                <div class="archive-film-card">
+                  <div class="archive-film-thumb">
+                    <div class="archive-film-thumb-text">▶</div>
+                    <div class="archive-film-label">Editorial Film</div>
+                  </div>
+                </div>
+                <div class="archive-lookbook-grid">
+                  <div class="archive-look-thumb"></div>
+                  <div class="archive-look-thumb"></div>
+                  <div class="archive-look-thumb"></div>
+                  <div class="archive-look-thumb"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="archive-season-item" id="season-25FW">
+              <div class="archive-season-header" onclick="toggleSeason('25FW')">
+                <div class="archive-season-left">
+                  <div class="archive-season-name">25FW</div>
+                  <div class="archive-season-title">WAYFINDER</div>
+                </div>
+                <div class="archive-season-toggle">+</div>
+              </div>
+              <div class="archive-season-body" id="body-25FW" style="display:none;">
+                <div class="archive-season-quote">"길을 찾는 자들을 위하여"</div>
+                <div class="archive-film-card">
+                  <div class="archive-film-thumb">
+                    <div class="archive-film-thumb-text">▶</div>
+                    <div class="archive-film-label">Campaign Film</div>
+                  </div>
+                </div>
+                <div class="archive-lookbook-grid">
+                  <div class="archive-look-thumb"></div>
+                  <div class="archive-look-thumb"></div>
+                  <div class="archive-look-thumb"></div>
+                  <div class="archive-look-thumb"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="archive-season-item" id="season-25SS">
+              <div class="archive-season-header" onclick="toggleSeason('25SS')">
+                <div class="archive-season-left">
+                  <div class="archive-season-name">25SS</div>
+                  <div class="archive-season-title">CHECK POINT</div>
+                </div>
+                <div class="archive-season-toggle">+</div>
+              </div>
+              <div class="archive-season-body" id="body-25SS" style="display:none;">
+                <div class="archive-season-quote">"멈춤도 여정의 일부다"</div>
+                <div class="archive-film-card">
+                  <div class="archive-film-thumb">
+                    <div class="archive-film-thumb-text">▶</div>
+                    <div class="archive-film-label">Campaign Film</div>
+                  </div>
+                </div>
+                <div class="archive-lookbook-grid">
+                  <div class="archive-look-thumb"></div>
+                  <div class="archive-look-thumb"></div>
+                  <div class="archive-look-thumb"></div>
+                  <div class="archive-look-thumb"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="archive-season-item" id="season-24FW">
+              <div class="archive-season-header" onclick="toggleSeason('24FW')">
+                <div class="archive-season-left">
+                  <div class="archive-season-name">24FW</div>
+                  <div class="archive-season-title">PIVOT / NODE</div>
+                </div>
+                <div class="archive-season-toggle">+</div>
+              </div>
+              <div class="archive-season-body" id="body-24FW" style="display:none;">
+                <div class="archive-season-quote">"전환점에서 바라본 풍경"</div>
+                <div class="archive-film-card">
+                  <div class="archive-film-thumb">
+                    <div class="archive-film-thumb-text">▶</div>
+                    <div class="archive-film-label">Campaign Film</div>
+                  </div>
+                </div>
+                <div class="archive-lookbook-grid">
+                  <div class="archive-look-thumb"></div>
+                  <div class="archive-look-thumb"></div>
+                  <div class="archive-look-thumb"></div>
+                  <div class="archive-look-thumb"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="archive-season-item" id="season-24SS">
+              <div class="archive-season-header" onclick="toggleSeason('24SS')">
+                <div class="archive-season-left">
+                  <div class="archive-season-name">24SS</div>
+                  <div class="archive-season-title">SCOPE</div>
+                </div>
+                <div class="archive-season-toggle">+</div>
+              </div>
+              <div class="archive-season-body" id="body-24SS" style="display:none;">
+                <div class="archive-season-quote">"시야를 확장하다"</div>
+                <div class="archive-film-card">
+                  <div class="archive-film-thumb">
+                    <div class="archive-film-thumb-text">▶</div>
+                    <div class="archive-film-label">Campaign Film</div>
+                  </div>
+                </div>
+                <div class="archive-lookbook-grid">
+                  <div class="archive-look-thumb"></div>
+                  <div class="archive-look-thumb"></div>
+                  <div class="archive-look-thumb"></div>
+                  <div class="archive-look-thumb"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="archive-season-item" id="season-23FW">
+              <div class="archive-season-header" onclick="toggleSeason('23FW')">
+                <div class="archive-season-left">
+                  <div class="archive-season-name">23FW</div>
+                  <div class="archive-season-title">THIRD KIT</div>
+                </div>
+                <div class="archive-season-toggle">+</div>
+              </div>
+              <div class="archive-season-body" id="body-23FW" style="display:none;">
+                <div class="archive-season-quote">"세 번째 유니폼"</div>
+                <div class="archive-film-card">
+                  <div class="archive-film-thumb">
+                    <div class="archive-film-thumb-text">▶</div>
+                    <div class="archive-film-label">Campaign Film</div>
+                  </div>
+                </div>
+                <div class="archive-lookbook-grid">
+                  <div class="archive-look-thumb"></div>
+                  <div class="archive-look-thumb"></div>
+                  <div class="archive-look-thumb"></div>
+                  <div class="archive-look-thumb"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- NODE -->
+        <div class="tab-page" id="page-NODE">
+
+          <!-- 세그먼트 스위처 -->
+          <div class="node-switcher">
+            <button class="node-seg-btn active" onclick="switchNode('EVENT')">Event</button>
+            <button class="node-seg-btn" onclick="switchNode('CREW')">Crew</button>
+            <button class="node-seg-btn" onclick="switchNode('LIVERUN')">Live Run</button>
+          </div>
+
+          <!-- EVENT -->
+          <div class="node-seg-content active" id="node-EVENT">
+            <div class="node-section">
+              <div class="node-section-label">Upcoming</div>
+              <div class="node-event-card">
+                <div class="node-event-thumb"><div class="node-event-thumb-text">RUN</div><div class="node-event-dday">D-14</div></div>
+                <div class="node-event-body">
+                  <div><div class="node-event-name">Han River Night Run</div><div class="node-event-meta">2026.04.12 SAT 19:00 · 한강공원 · 5KM</div></div>
+                  <button class="node-event-btn booked">Booked</button>
+                </div>
+              </div>
+              <div class="node-event-card">
+                <div class="node-event-thumb"><div class="node-event-thumb-text">TRAIL</div><div class="node-event-dday">D-28</div></div>
+                <div class="node-event-body">
+                  <div><div class="node-event-name">Bukhan Trail Race</div><div class="node-event-meta">2026.04.26 SAT 08:00 · 북한산 · 12KM</div></div>
+                  <button class="node-event-btn">Apply</button>
+                </div>
+              </div>
+              <div class="node-event-card">
+                <div class="node-event-thumb"><div class="node-event-thumb-text">CLUB</div><div class="node-event-dday">D-35</div></div>
+                <div class="node-event-body">
+                  <div><div class="node-event-name">TOJI Run Club #12</div><div class="node-event-meta">2026.05.03 SAT 07:00 · 올림픽공원 · 8KM</div></div>
+                  <button class="node-event-btn">Apply</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CREW -->
+          <div class="node-seg-content" id="node-CREW">
+
+            <!-- 크루 만들기 배너 -->
+            <div class="crew-banner">
+              <div class="crew-banner-bg"></div>
+              <div class="crew-banner-content">
+                <div class="crew-banner-sub">혼자는 이제 그만</div>
+                <div class="crew-banner-title">크루 만들기</div>
+              </div>
+              <button class="crew-banner-btn">+ Create</button>
+            </div>
+
+            <!-- 나의 크루 -->
+            <div class="node-section">
+              <div class="node-section-label">나의 크루</div>
+              <div class="crew-card">
+                <div class="crew-card-header">
+                  <div>
+                    <div class="crew-name">TOJI SEOUL CREW</div>
+                    <div class="crew-meta">서울 · 24명</div>
+                  </div>
+                  <div class="crew-badge">Member</div>
+                </div>
+                <div class="crew-next-run">
+                  <div class="crew-next-label">Next Run</div>
+                  <div class="crew-next-info">2026.04.05 SAT 07:00 · 한강공원 · 8KM</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 추천 크루 -->
+            <div class="node-section" style="margin-top:20px;">
+              <div class="node-section-label">추천 크루</div>
+              <div class="crew-grid">
+                <div class="crew-grid-item">
+                  <div class="crew-grid-thumb"><div class="crew-grid-thumb-text">HRC</div></div>
+                  <div class="crew-grid-name">Han River Crew</div>
+                  <div class="crew-grid-meta">서울 · 312명</div>
+                </div>
+                <div class="crew-grid-item">
+                  <div class="crew-grid-thumb"><div class="crew-grid-thumb-text">NSC</div></div>
+                  <div class="crew-grid-name">Night Shift Club</div>
+                  <div class="crew-grid-meta">서울 · 187명</div>
+                </div>
+                <div class="crew-grid-item">
+                  <div class="crew-grid-thumb"><div class="crew-grid-thumb-text">BTC</div></div>
+                  <div class="crew-grid-name">Bukhan Trail Crew</div>
+                  <div class="crew-grid-meta">서울 · 94명</div>
+                </div>
+                <div class="crew-grid-item">
+                  <div class="crew-grid-thumb"><div class="crew-grid-thumb-text">SMC</div></div>
+                  <div class="crew-grid-name">Seongsu Morning</div>
+                  <div class="crew-grid-meta">서울 · 256명</div>
+                </div>
+                <div class="crew-grid-item">
+                  <div class="crew-grid-thumb"><div class="crew-grid-thumb-text">SRC</div></div>
+                  <div class="crew-grid-name">Seoul Run Crew</div>
+                  <div class="crew-grid-meta">모든지역 · 1,204명</div>
+                </div>
+                <div class="crew-grid-item">
+                  <div class="crew-grid-thumb"><div class="crew-grid-thumb-text">MRC</div></div>
+                  <div class="crew-grid-name">Mapo Run Club</div>
+                  <div class="crew-grid-meta">서울 · 431명</div>
+                </div>
+              </div>
+              <button class="crew-more-btn">모든 크루 보기 →</button>
+            </div>
+
+          </div>
+
+          <!-- LIVE RUN -->
+          <div class="node-seg-content" id="node-LIVERUN">
+            <!-- 미니 맵 -->
+            <div class="liverun-map">
+              <div class="liverun-map-grid"></div>
+              <svg class="liverun-map-svg" viewBox="0 0 390 220" fill="none">
+                <line x1="0" y1="80" x2="390" y2="80" stroke="rgba(255,255,255,0.05)" stroke-width="8"/>
+                <line x1="0" y1="150" x2="390" y2="150" stroke="rgba(255,255,255,0.04)" stroke-width="6"/>
+                <line x1="100" y1="0" x2="100" y2="220" stroke="rgba(255,255,255,0.04)" stroke-width="5"/>
+                <line x1="230" y1="0" x2="230" y2="220" stroke="rgba(255,255,255,0.05)" stroke-width="7"/>
+                <line x1="330" y1="0" x2="330" y2="220" stroke="rgba(255,255,255,0.03)" stroke-width="4"/>
+              </svg>
+              <!-- 러너 점들 -->
+              <div class="liverun-dot" style="top:35%;left:22%"><div class="liverun-dot-circle"></div><div class="liverun-dot-label">한강 3명</div></div>
+              <div class="liverun-dot" style="top:20%;left:58%"><div class="liverun-dot-circle" style="animation-delay:0.7s"></div><div class="liverun-dot-label">성수 2명</div></div>
+              <div class="liverun-dot" style="top:55%;left:70%"><div class="liverun-dot-circle" style="animation-delay:1.3s"></div><div class="liverun-dot-label">홍대 4명</div></div>
+              <div class="liverun-dot" style="top:65%;left:35%"><div class="liverun-dot-circle" style="animation-delay:0.4s"></div><div class="liverun-dot-label">이태원 2명</div></div>
+              <div class="liverun-dot" style="top:25%;left:82%"><div class="liverun-dot-circle" style="animation-delay:1.8s"></div><div class="liverun-dot-label">잠실 1명</div></div>
+              <!-- 총 인원 -->
+              <div class="liverun-total">
+                <div class="liverun-total-num" id="liveTotal">12</div>
+                <div class="liverun-total-label">now running</div>
+              </div>
+            </div>
+
+            <!-- 세션 -->
+            <div class="node-section">
+              <div class="node-section-label">Live Sessions</div>
+              <div class="liverun-session">
+                <div class="liverun-session-info">
+                  <div class="liverun-session-name">Han River Evening Run</div>
+                  <div class="liverun-session-meta">오늘 19:00 시작 · 5KM · 3명 참여중</div>
+                </div>
+                <button class="liverun-session-btn">Join</button>
+              </div>
+              <div class="liverun-session">
+                <div class="liverun-session-info">
+                  <div class="liverun-session-name">Seongsu Morning Crew</div>
+                  <div class="liverun-session-meta">내일 06:30 시작 · 8KM · 5명 참여중</div>
+                </div>
+                <button class="liverun-session-btn">Join</button>
+              </div>
+              <button class="liverun-create-btn" onclick="alert('세션 만들기는 실제 앱에서 구현 예정!')">+ Create Session</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- SONIC -->
+        <div class="tab-page" id="page-SONIC">
+          <div class="sonic-section">
+            <div class="sonic-now">
+              <div class="sonic-now-label">Now Playing</div>
+              <div class="sonic-disc" id="sonicDisc"><div class="sonic-disc-inner"></div></div>
+              <div>
+                <div class="sonic-track-title" id="sonicTitle">BSIDE — Interlude</div>
+                <div class="sonic-track-artist" id="sonicArtist">SSG SOUND VOL.3</div>
+              </div>
+              <div class="sonic-controls">
+                <button class="sonic-ctrl-btn" onclick="sonicPrev()">⟨</button>
+                <button class="sonic-play-btn" id="sonicPlayBtn" onclick="toggleSonic()">▶</button>
+                <button class="sonic-ctrl-btn" onclick="sonicNext()">⟩</button>
+              </div>
+            </div>
+            <div class="sonic-section-label">Playlist — RUN TAPE VOL.3</div>
+            <div class="sonic-playlist-item" onclick="sonicPlay(0)"><div class="sonic-pl-num">01</div><div class="sonic-pl-info"><div class="sonic-pl-title">BSIDE — Interlude</div><div class="sonic-pl-artist">SSG SOUND</div></div><div class="sonic-pl-duration">3:42</div></div>
+            <div class="sonic-playlist-item" onclick="sonicPlay(1)"><div class="sonic-pl-num">02</div><div class="sonic-pl-info"><div class="sonic-pl-title">Night Drift</div><div class="sonic-pl-artist">SSG SOUND</div></div><div class="sonic-pl-duration">4:15</div></div>
+            <div class="sonic-playlist-item" onclick="sonicPlay(2)"><div class="sonic-pl-num">03</div><div class="sonic-pl-info"><div class="sonic-pl-title">FIELD NOTES</div><div class="sonic-pl-artist">SSG SOUND</div></div><div class="sonic-pl-duration">5:02</div></div>
+            <div class="sonic-playlist-item" onclick="sonicPlay(3)"><div class="sonic-pl-num">04</div><div class="sonic-pl-info"><div class="sonic-pl-title">Concrete Garden</div><div class="sonic-pl-artist">SSG SOUND</div></div><div class="sonic-pl-duration">3:58</div></div>
+            <div class="sonic-playlist-item" onclick="sonicPlay(4)"><div class="sonic-pl-num">05</div><div class="sonic-pl-info"><div class="sonic-pl-title">Exit Ramp</div><div class="sonic-pl-artist">SSG SOUND</div></div><div class="sonic-pl-duration">4:33</div></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tab Bar -->
       <div class="tab-bar" id="tabBar">
-        <button class="tab-item active" data-tab="STATUS">Status</button>
+        <button class="tab-item active" data-tab="HOME">Home</button>
         <button class="tab-item" data-tab="ACTIVITY">Activity</button>
-        <button class="tab-item" data-tab="GEAR">Gear</button>
-        <button class="tab-item" data-tab="ACCESS">Access</button>
+        <button class="tab-item" data-tab="GEAR">Archive</button>
+        <button class="tab-item" data-tab="NODE">Node</button>
         <button class="tab-item" data-tab="SONIC">Sonic</button>
       </div>
-    </div>
 
+    </div>
   </div>
 
   <div class="nav-buttons">
-    <button class="nav-btn" onclick="history.back()" title="Back">&#8592;</button>
-    <button class="nav-btn" onclick="history.forward()" title="Forward">&#8594;</button>
+    <button class="nav-btn" onclick="history.back()">&#8592;</button>
+    <button class="nav-btn" onclick="history.forward()">&#8594;</button>
   </div>
 </div>
 
@@ -1067,18 +1406,40 @@
     document.getElementById('main').classList.remove('hidden');
   }
 
-  let running = false;
-  let runSeconds = 0;
-  let runInterval = null;
-  let fakeDist = 0;
+  document.getElementById('tabBar').addEventListener('click', (e) => {
+    const tab = e.target.closest('.tab-item');
+    if (!tab) return;
+    document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + tab.dataset.tab).classList.add('active');
+  });
+
+  function switchNode(seg) {
+    document.querySelectorAll('.node-seg-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.node-seg-content').forEach(c => c.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('node-' + seg).classList.add('active');
+  }
+
+  // 라이브런 인원 랜덤 변화
+  setInterval(() => {
+    const el = document.getElementById('liveTotal');
+    if (el) el.textContent = 8 + Math.floor(Math.random() * 8);
+  }, 5000);
+
+  function openMypage() { document.getElementById('mypageScreen').classList.add('active'); }
+  function closeMypage() { document.getElementById('mypageScreen').classList.remove('active'); }
+
+  let runSeconds = 0, runInterval = null, fakeDist = 0;
+  let routePoints = [];
+  const routeCx = 195, routeCy = 400;
 
   function startRun() {
-    // 러닝 화면으로 전환
     document.getElementById('runScreen').classList.add('active');
     document.getElementById('tabBar').style.display = 'none';
-    runSeconds = 0;
-    fakeDist = 0;
-    running = true;
+    runSeconds = 0; fakeDist = 0;
+    routePoints = [[routeCx, routeCy]];
 
     runInterval = setInterval(() => {
       runSeconds++;
@@ -1087,55 +1448,97 @@
       document.getElementById('rsT').textContent = m + ':' + s;
       fakeDist += 0.003;
       document.getElementById('rsD').textContent = fakeDist.toFixed(2);
-      const paceMin = 5;
-      const paceSec = String(Math.floor(30 + Math.random() * 20)).padStart(2, '0');
-      document.getElementById('rsP').textContent = paceMin + "'" + paceSec + '"';
+      const ps = String(Math.floor(30 + Math.random() * 20)).padStart(2, '0');
+      document.getElementById('rsP').textContent = "5'" + ps + '"';
+
+      // 경로 그리기
+      const last = routePoints[routePoints.length - 1];
+      const nx = last[0] + (Math.random() - 0.5) * 8;
+      const ny = last[1] + (Math.random() - 0.48) * 6;
+      routePoints.push([nx, ny]);
+      if (routePoints.length > 80) routePoints.shift();
+      const d = 'M ' + routePoints.map(p => p[0] + ' ' + p[1]).join(' L ');
+      document.getElementById('runRoutePath').setAttribute('d', d);
+
+      // 러너 수 변화
+      if (runSeconds % 8 === 0) {
+        document.getElementById('runnersNum').textContent = 6 + Math.floor(Math.random() * 6);
+      }
     }, 1000);
   }
 
   function stopRun() {
     clearInterval(runInterval);
-    running = false;
-
-    // 결과 화면으로 전환
     document.getElementById('runScreen').classList.remove('active');
     document.getElementById('resultScreen').classList.add('active');
-
     const m = String(Math.floor(runSeconds / 60)).padStart(2, '0');
     const s = String(runSeconds % 60).padStart(2, '0');
     document.getElementById('resDist').textContent = fakeDist.toFixed(2);
     document.getElementById('resTime').textContent = m + ':' + s;
     document.getElementById('resPace').textContent = "5'42\"";
-    const pt = Math.floor(fakeDist * 5);
-    document.getElementById('resPt').textContent = '+ ' + pt + ' PT';
+    document.getElementById('resPt').textContent = '+ ' + Math.floor(fakeDist * 5) + ' PT';
   }
 
   function saveRun() {
     document.getElementById('resultScreen').classList.remove('active');
     document.getElementById('tabBar').style.display = 'flex';
-    // ACTIVITY 탭으로 복귀
-    document.querySelectorAll('.tab-item').forEach(t => {
-      t.classList.toggle('active', t.dataset.tab === 'ACTIVITY');
-    });
+    document.querySelectorAll('.tab-item').forEach(t => t.classList.toggle('active', t.dataset.tab === 'ACTIVITY'));
     document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-ACTIVITY').classList.add('active');
-    // 리셋
-    document.getElementById('rsD').textContent = '0.00';
-    document.getElementById('rsT').textContent = '00:00';
-    document.getElementById('rsP').textContent = "--'--\"";
   }
 
-  function shareCard() {
-    alert('인스타 공유 카드 기능은 실제 앱에서 구현 예정입니다!');
+  function shareCard() { alert('인스타 공유 카드는 실제 앱에서 구현 예정!'); }
+
+  const tracks = [
+    { title: 'BSIDE — Interlude', artist: 'SSG SOUND VOL.3' },
+    { title: 'Night Drift', artist: 'SSG SOUND VOL.3' },
+    { title: 'FIELD NOTES', artist: 'SSG SOUND VOL.3' },
+    { title: 'Concrete Garden', artist: 'SSG SOUND VOL.3' },
+    { title: 'Exit Ramp', artist: 'SSG SOUND VOL.3' },
+  ];
+
+  let sonicPlaying = false, sonicCurrent = 0;
+
+  function toggleSonic() {
+    sonicPlaying = !sonicPlaying;
+    document.getElementById('sonicPlayBtn').textContent = sonicPlaying ? '⏸' : '▶';
+    document.getElementById('sonicDisc').classList.toggle('playing', sonicPlaying);
   }
 
-  document.getElementById('tabBar').addEventListener('click', (e) => {
-    const tab = e.target.closest('.tab-item');
-    if (!tab) return;
-    document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page-' + tab.dataset.tab).classList.add('active');
+  function sonicPlay(idx) {
+    sonicCurrent = idx;
+    document.getElementById('sonicTitle').textContent = tracks[idx].title;
+    document.getElementById('sonicArtist').textContent = tracks[idx].artist;
+    if (!sonicPlaying) toggleSonic();
+  }
+
+  function sonicNext() { sonicPlay((sonicCurrent + 1) % tracks.length); }
+  function sonicPrev() { sonicPlay((sonicCurrent - 1 + tracks.length) % tracks.length); }
+
+  function toggleSeason(id) {
+    const item = document.getElementById('season-' + id);
+    const body = document.getElementById('body-' + id);
+    const isOpen = item.classList.contains('open');
+    // 전부 닫기
+    document.querySelectorAll('.archive-season-item').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.archive-season-body').style.display = 'none';
+    });
+    // 클릭한 거 열기
+    if (!isOpen) {
+      item.classList.add('open');
+      body.style.display = 'block';
+    }
+  }
+
+  // 기본 첫 시즌 열기
+  document.getElementById('season-26SS').classList.add('open');
+
+  document.querySelectorAll('.gear-filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.gear-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
   });
 </script>
 
