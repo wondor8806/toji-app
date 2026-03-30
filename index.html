@@ -437,7 +437,7 @@
     background: rgba(0,0,0,0.97);
     border-top: 1px solid rgba(255,255,255,0.1);
     flex-direction: column;
-    max-height: 220px;
+    max-height: 280px;
   }
 
   .run-music-panel.open { display: flex; }
@@ -488,7 +488,7 @@
 
   .run-music-tracks { display: block; }
 
-  .run-music-list { display: none; flex-direction: column; overflow: hidden; }
+  .run-music-list { display: none; flex-direction: column; overflow-y: auto; max-height: 160px; scrollbar-width: none; }
   .run-music-list.active { display: flex; }
 
   .run-music-track {
